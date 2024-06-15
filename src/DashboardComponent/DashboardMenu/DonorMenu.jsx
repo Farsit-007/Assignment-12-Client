@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import useStatus from "../../Hooks/useStatus";
-
+import { MdDashboardCustomize } from "react-icons/md";
+import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
+import { IoIosCreate } from "react-icons/io";
 const DonorMenu = () => {
     const [status, isLoading] = useStatus()
     return (
@@ -9,31 +11,42 @@ const DonorMenu = () => {
                 to='/dashboard'
                 end
                 className={({ isActive }) =>
-                    `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                    `flex items-center px-4 py-2 my-5 font-medium transition-colors duration-300 transform  hover:bg-rose-100 rounded-md  hover:text-[#5D0911] ${isActive ? 'bg-rose-100  text-[#5D0911]' : 'text-white'
                     }`
-                }>Dashboad Home</NavLink></li>
+                }>
+                   <MdDashboardCustomize className='w-5 h-5 '/>
+                   <span className='mx-3 font-medium'>Dashboard</span>
+                
+                </NavLink></li>
             <li><NavLink to='/dashboard/my-donation-requests'
-                className={({ isActive }) =>
-                    `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                    }`
-                }>My Donation Requests</NavLink></li>
+               className={({ isActive }) =>
+                `flex items-center px-4 py-2 my-5 font-medium transition-colors duration-300 transform  hover:bg-rose-100 rounded-md  hover:text-[#5D0911] ${isActive ? 'bg-rose-100  text-[#5D0911]' : 'text-white'
+                }`
+            }>
+                  <VscGitPullRequestGoToChanges className='w-5  h-5' />
+                  <span className='mx-3 font-medium'>  My Donation </span>
+              
+                </NavLink></li>
             <li>
                 {status === 'blocked' ? (
                     <span
-                        className="flex items-center px-4 py-2 my-5 cursor-not-allowed bg-gray-200 text-gray-400"
+                        className="flex items-center rounded-md px-4 py-2 my-5 cursor-not-allowed bg-gray-200 text-gray-400"
                         title="User has been blocked by admin!! cann't make a request"
                     >
-                        Create Donation Request
+                        <IoIosCreate className='w-5  h-5'/>
+                        <span className='mx-3 font-medium'>Create Donation</span>
                     </span>
                 ) : (
                     <NavLink
                         to="/dashboard/create-donation-request"
                         className={({ isActive }) =>
-                            `flex items-center px-4 py-2 my-5 transition-colors duration-300 transform hover:bg-gray-300 hover:text-gray-700 ${isActive ? 'bg-gray-300 text-gray-700' : 'text-gray-600'
+                            `flex items-center px-4 py-2 my-5 font-medium transition-colors duration-300 transform  hover:bg-rose-100 rounded-md  hover:text-[#5D0911] ${isActive ? 'bg-rose-100  text-[#5D0911]' : 'text-white'
                             }`
                         }
                     >
-                        Create Donation Request
+                        <IoIosCreate className='w-5  h-5'/>
+                        <span className='mx-3 font-medium'>Create Donation</span>
+                        
                     </NavLink>
                 )}
             </li>

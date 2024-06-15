@@ -1,8 +1,21 @@
-.activecls {
-    position: fixed;
+/* Add to your Header.css */
+.black-portion {
+  transition: opacity 5s;
+}
+
+.navbar {
+  transition: top 0.5s;
+}
+
+.active-header {
+  top: 0 !important;
+}
+
+.navbar.top-10 {
+  top: 32px; /* height of the black portion */
+}
+@media (max-width: 767px) {
+  .navbar.top-10 {
     top: 0;
-    left: 0;
-    right: 0;
-    background-color: #05030a4d;
-    z-index: 50;
   }
+}

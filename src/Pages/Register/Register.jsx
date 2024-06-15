@@ -6,10 +6,7 @@ import { IoEye, IoEyeOff } from "react-icons/io5";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import axios from "axios";
-
-const image_hosting_key = "6c6d9827b1a74ce39e723830557272b6";
-const image_hosting_Api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
-
+const image_hosting_Api = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMAGE_HOSTING_API}`;
 const Register = () => {
     const { createUser, profileUpdate } = useAuth();
     const axiosPublic = useAxiosPublic();
@@ -237,6 +234,9 @@ const Register = () => {
                         <div>
                             <input type="submit" value="Register" className="w-full btn bg-blue-500 hover:bg-blue-700 border-none text-white" />
                         </div>
+                        <p className="p-2 text-sm text-center text-gray-300">Already have an account?
+                            <Link to="/login" className="hover:underline text-red-600 pl-1 font-extrabold">Login</Link>.
+                        </p>
                     </form>
                 </div>
             </div>
