@@ -16,9 +16,17 @@ const SearchPage = () => {
         queryKey: ['searchData ',district,upazila,blood],
         queryFn: async () => {
             const { data } = await axiosPublic.get(`/searchdata?district=${district}&upazila=${upazila}&blood=${blood}`);
+            console.log(data);
             return data
         },
-        enabled: false,
+        // enabled: false,
+    });
+    const { data: donor = [] } = useQuery({
+        queryKey: ['donor'],
+        queryFn: async () => {
+            const { data } = await axiosPublic.get(`/Donorcount`);
+            return data
+        }
     });
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -29,17 +37,23 @@ const SearchPage = () => {
         const selectedUpazila = filteredUpazilas.find(u => u.id === upazila);
         const S_district = selectedDistrict?.name;
         const S_upazila = selectedUpazila?.name;
-        const blood = form.blood.value;
+        const blood = encodeURIComponent(form.blood.value);
         setDistrict(S_district)
         setUpazila(S_upazila)
         setBlood(blood)
         setClicked(true)
     }
+    const handleReset = () => {
+        setDistrict('');
+        setUpazila('');
+        setBlood('');
+        setClicked(false); 
+    };
     useEffect(()=>{
         if(clicked){
             refetch()
         }
-    },[clicked])
+    },[clicked,refetch])
    
    
     useEffect(() => {
@@ -63,12 +77,9 @@ const SearchPage = () => {
     };
     return (
         <div>
-            <div className=" bg-cover max-h-[200px] bg-slate-50 " style={{ backgroundImage: `url(https://i.postimg.cc/j2jFM8RW/small-juvenile-bedroom-arrangement-1.webp)` }}>
-                <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center  text-gray-900">
-                    <h1 className="text-4xl  mt-8 md:mt-0 font-bold leading-none sm:text-6xl xl:max-w-3xl text-white playfair ">My Booking Details</h1>
-                </div>
-            </div>
-            <div className="py-5">
+            <div className=" bg-cover h-[350px] md:h-[250px]  bg-[#fcdfdf] ">
+            
+                <div className=" max-w-6xl mx-auto pt-20 md:pt-40 px-10">
                 <form onSubmit={handleSubmit}>
                     <div className="flex flex-col md:flex-row items-center justify-center gap-5">
 
@@ -89,7 +100,8 @@ const SearchPage = () => {
                             ))}
                         </select>
 
-                        <select name="blood" required className="select select-bordered w-full max-w-xs">
+                        <select
+                         name="blood" required className="select select-bordered w-full max-w-xs">
                             <option disabled selected value=''>Blood</option>
                             <option>A+</option>
                             <option>A-</option>
@@ -101,15 +113,24 @@ const SearchPage = () => {
                             <option>O-</option>
                         </select>
 
-                        <div>
+                        <div className="flex gap-5">
                             <input className="btn" type="submit" value='Search' />
+                            <div>
+                            <button type="button" className="btn btn-secondary" onClick={handleReset}>Reset</button>
+                            </div>
                         </div>
                     </div>
                 </form>
             </div>
-            <div className=" max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+               
+            </div>
+            <div className="max-w-6xl mx-auto rounded-lg mt-10 bg-gradient-to-r from-[#5D0911] to-[#ac0000]">
+                 <p className="py-2 text-white px-3 font-semibold text-xl">Total Donors : {donor.Donorcount}</p>
+            </div>
+            
+            <div className=" max-w-6xl mx-auto py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                  {
-                    searchData.map(sdata=><SearchCard key={sdata._id} sdata={sdata}></SearchCard>)
+                    searchData.filter(d=>d.role ==='donor').map(sdata=><SearchCard key={sdata._id} sdata={sdata}></SearchCard>)
                  }
             </div>
         </div>

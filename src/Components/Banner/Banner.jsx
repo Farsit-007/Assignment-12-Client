@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-
+import bg from '../../../public/bg.svg'
 const Banner = () => {
     return (
-        <div className='w-full font-Cormorant flex justify-start items-center min-h-screen bg-cover ' style={{ backgroundImage: `url(https://i.postimg.cc/gjGbkFm8/1.webp)` }}>
+        <div className='w-full font-Cormorant flex justify-start items-center min-h-screen bg-cover ' style={{ backgroundImage: `url(${bg})` }}>
         
         <div className='w-11/12 md:w-4/5 mx-auto z-10 flex flex-col-reverse md:flex-row gap-12 items-center text-center text-white'>
             <div data-aos="fade-up"

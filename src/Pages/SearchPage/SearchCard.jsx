@@ -1,19 +1,32 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
-
-const SearchCard = ({sdata}) => {
+import { IoPersonOutline } from "react-icons/io5";
+const SearchCard = ({ sdata }) => {
     return (
         <div>
-            <div className="card bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="card-title">{sdata.RecipientName}</h2>
-                    <h2 className="card-title">{sdata.HospitalName}</h2>
-                    <h2 className="card-title">{sdata.blood}</h2>
-                    <p>{sdata.message}</p>
-                    <div className="card-actions justify-end">
-                        <Link to={`/donationreq/${sdata._id}`} className="btn btn-primary">Donate</Link>
-                    </div>
+            <div className="px-2 flex items-center bg-base-100 rounded-xl shadow-xl">
+                <div className="text-[#5D0911]">
+                    <IoPersonOutline size={100} />
                 </div>
+                <div className="p-5">
+                <tbody>
+                        <tr className="">
+                            <th>Name </th>
+                            <td>:</td>
+                            <td><h2>{sdata.name}</h2></td>
+                        </tr>
+                        <tr className="">
+                            <th>Blood </th>
+                            <td>:</td>
+                            <td><h2>{sdata.blood}</h2></td>
+                        </tr>
+                        <tr className="">
+                            <th>District</th>
+                            <td>:</td>
+                            <td><h3>{sdata.district}</h3></td>
+                        </tr>
+                        </tbody>
+                </div>
+               
             </div>
         </div>
     );
