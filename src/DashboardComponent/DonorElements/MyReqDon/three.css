@@ -1,0 +1,19 @@
+.menu-wrapper {
+    position: relative;
+}
+
+.menu-wrapper .menu {
+    display: none;
+    position: absolute;
+    left: -120px; /* Adjust the left positioning as needed */
+    top: 0;
+    z-index: 1;
+}
+
+.menu-wrapper:hover .menu {
+    display: block;
+}
+
+.menu-trigger {
+    cursor: pointer;
+}

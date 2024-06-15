@@ -1,0 +1,8 @@
+.activecls {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #05030a4d;
+    z-index: 50;
+  }
