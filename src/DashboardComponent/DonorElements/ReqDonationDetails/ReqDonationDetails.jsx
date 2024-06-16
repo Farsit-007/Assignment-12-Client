@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
