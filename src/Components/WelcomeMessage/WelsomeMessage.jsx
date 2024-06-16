@@ -1,8 +1,8 @@
 
 const WelsomeMessage = ({ message }) => {
     return (
-        <div className="text-center pb-10">
-            <h1 className="text-3xl  py-3 ">{message}</h1>
+        <div className="text-center my-5 mx-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
+          <h1 className="text-2xl p-2 px-5 text-white font-bold ">{message} </h1>
         </div>
     );
 };

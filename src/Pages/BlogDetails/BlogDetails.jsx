@@ -13,23 +13,23 @@ const BlogDetails = () => {
             return data
         }
     });
-    if (isLoading ) return <LoadingSpinner />;
+    if (isLoading) return <LoadingSpinner />;
     return (
-        <div className="mx-4 md:mx-5 lg:mx-8 ">
+        <div className="mx-4 md:mx-5  ">
             <div className="my-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
-                        <h1 className="text-2xl p-2 px-5 text-white font-bold ">{Bdetails.title} </h1>
-                    </div>
-                    <figure className="" style={{ height: '400px', width: '100%', overflow: 'hidden' }}>
-                        <img
-                            src={Bdetails.image}
-                            className="block object-cover rounded-lg h-full w-full "
-                        />
+                <h1 className="text-2xl p-2 px-5 text-white font-bold ">{Bdetails.title} </h1>
+            </div>
+            <figure className="" style={{ height: '400px', width: '100%', overflow: 'hidden' }}>
+                <img
+                    src={Bdetails.image}
+                    className="block object-cover rounded-lg h-full w-full "
+                />
 
-                    </figure>
-                    <div className="p-3">
-                        <p>{Bdetails.content}</p>
-                    </div>
-           
+            </figure>
+            <div className="p-3">
+                <p>{Bdetails.content}</p>
+            </div>
+
         </div>
     );
 };

@@ -101,8 +101,8 @@ const AllBloodDonationreq = () => {
 
                 <div>
                     <div className='max-w-6xl mx-auto'>
-                        <div className='py-8'>
-                            <div className=' px-2 sm:px-4 py-4 overflow-x-auto'>
+                        <div className=''>
+                            <div className='mx-5  py-4 overflow-x-auto'>
                                 <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
                                     <table className='min-w-full font-semibold leading-normal text-center'>
                                         <thead className="bg-gradient-to-r  from-[#5D0911] to-[#ac0000]" >
@@ -218,10 +218,10 @@ const AllBloodDonationreq = () => {
                                                                         d.status === 'inprogress' && <>
                                                                             <li><button
                                                                                 className="transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md  hover:text-[#5D0911]"
-                                                                                onClick={() => handleStatusChange(d._id, 'done')}>done</button></li>
+                                                                                onClick={() => handleStatusChange(d._id, 'done')}>Done</button></li>
                                                                             <li><button
                                                                                 className="transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md  hover:text-[#5D0911]"
-                                                                                onClick={() => handleStatusChange(d._id, 'cancel')}>cancel</button></li>
+                                                                                onClick={() => handleStatusChange(d._id, 'cancel')}>Cancel</button></li>
                                                                         </>
                                                                     }
                                                                 </ul>

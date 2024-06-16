@@ -135,13 +135,13 @@ const MyReqDon = () => {
             <div>
                 <WelsomeMessage message={`${user.displayName} Welcome To Blood Donation`}></WelsomeMessage>
             </div>
-            <div className="px-5 ">
+            <div className="px-5 flex justify-center">
                 <select
                     onChange={e => setFilter(e.target.value)}
                     value={filter}
                     name='status'
                     id='status'
-                    className='select w-40 '>
+                    className='select  bg-[#5D0911] text-rose-100 font-bold text-lg'>
                     <option value=''>Filter By Status</option>
                     <option value='pending'>Pending</option>
                     <option value='inprogress'>Inprogress</option>
@@ -153,9 +153,8 @@ const MyReqDon = () => {
             {
                 donation.length > 0 && <div>
                     <div>
-                        <div className='max-w-6xl mx-auto'>
-                            <div className='py-2'>
-                                <div className=' px-2 sm:px-4 py-4 overflow-x-auto'>
+                     
+                                <div className=' mx-5 py-4 overflow-x-auto'>
                                     <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
                                         <table className='min-w-full font-semibold leading-normal text-center'>
                                             <thead className="bg-gradient-to-r  from-[#5D0911] to-[#ac0000]" >
@@ -290,8 +289,7 @@ const MyReqDon = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                   
             }
             <div className='flex justify-center mt-12'>
 

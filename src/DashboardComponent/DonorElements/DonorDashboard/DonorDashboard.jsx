@@ -96,10 +96,10 @@ const DonorDashboard = () => {
             </div>
             {donation.length > 0 && (
 
-                <div>
-                    <div className='max-w-6xl mx-auto'>
-                        <div className='py-8'>
-                            <div className=' px-2 sm:px-4 py-4 overflow-x-auto'>
+              
+                    
+                        <div className=''>
+                            <div className=' mx-5 py-4 overflow-x-auto'>
                                 <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
                                     <table className='min-w-full leading-normal text-center'>
                                         <thead className="bg-gradient-to-r  from-[#5D0911] to-[#ac0000]" >
@@ -233,8 +233,7 @@ const DonorDashboard = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                  
             )}
         </div>
     );
