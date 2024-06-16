@@ -166,13 +166,7 @@ const Profile = () => {
                             </div>
                             <div className="flex flex-col justify-center items-center md:flex-row gap-5">
                                 <div className="w-full">
-                                    {/* <input
-                                        name="image"
-                                        type="file"
-                                        className="p-2 w-full max-w-xs"
-                                        disabled={!isEditing}
-                                       
-                                    /> */}
+                                   
                                     <div className='file_upload mt-5 px-5 py-2 relative border-4 border-dotted border-gray-300 rounded-lg'>
                                     <div className='flex flex-col w-max mx-auto text-center'>
                                         <label>

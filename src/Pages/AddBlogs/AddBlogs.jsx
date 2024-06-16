@@ -55,37 +55,49 @@ const AddBlogs = () => {
 
     const config = useMemo(() => ({
         readonly: false,
-        height: 400,
+        height: 350,
         uploader: {
             insertImageAsBase64URI: true
         }
     }), []);
     return (
         <div>
-            <div className=" w-[90%] mx-auto mt-10">
+            <div className=" w-[90%] mx-auto mt-5">
+            <div className="my-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
+                        <h1 className="text-2xl p-2 px-5 text-white font-bold ">The Journey of Donated Blood</h1>
+                    </div>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="space-y-2">
                         <div className="flex flex-col md:flex-row gap-5">
                             <div className="w-full">
-                                <label htmlFor="name" className="block mb-2 text-sm">Title</label>
+                              
                                 <input
                                     type="text"
                                     name='title'
-                                    placeholder="Enter your Name"
+                                    placeholder="Title"
                                     className="w-full px-3 py-2 border outline-none rounded-md bg-transparent"
                                 />
                             </div>
 
                         </div>
                         <div className="flex flex-col items-center md:flex-row gap-5">
-                            <div className="w-full ">
-                              
-                                <input
-                                    name="image"
-                                    type="file"
-                                    className="p-2 w-full max-w-xs"
-                                />
-                            </div>
+                            
+                            <div className='file_upload py-2 px-5 relative border-4 border-dotted border-gray-300 rounded-lg'>
+                                    <div className='flex flex-col w-max mx-auto text-center'>
+                                        <label>
+                                            <input
+                                                className='text-sm  w-36 hidden'
+                                                type='file'
+                                                name='image'
+                                                id='image'
+                                                hidden
+                                            />
+                                            <div className='bg-[#5D0911] text-white border border-gray-300 hover:text-[#5D0911] rounded font-semibold cursor-pointer p-1 px-3 hover:bg-rose-100'>
+                                                Upload Image
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
                         </div>
                         <div className="">
                             <JoditEditor
@@ -99,7 +111,7 @@ const AddBlogs = () => {
                     </div>
 
                     <div>
-                        <input type="submit" value="Update" className="w-full btn bg-blue-500 hover:bg-blue-700 border-none text-white" />
+                        <input type="submit" value="Update" className="w-full btn transition-colors duration-300 transform font-bold text-xl text-rose-100 badge  bg-[#5D0911] hover:bg-rose-100 rounded-lg  hover:text-[#5D0911]" />
                     </div>
 
                 </form>
