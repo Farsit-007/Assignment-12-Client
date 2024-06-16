@@ -157,7 +157,7 @@ const MyReqDon = () => {
                             <div className='py-2'>
                                 <div className=' px-2 sm:px-4 py-4 overflow-x-auto'>
                                     <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
-                                        <table className='min-w-full leading-normal text-center'>
+                                        <table className='min-w-full font-semibold leading-normal text-center'>
                                             <thead className="bg-gradient-to-r  from-[#5D0911] to-[#ac0000]" >
                                                 <tr className="text-center">
                                                     <th
@@ -221,7 +221,7 @@ const MyReqDon = () => {
                                                         <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                             <p className='text-gray-900 whitespace-no-wrap'> {d.time.slice(10, 30)}</p>
                                                         </td>
-                                                        <td >
+                                                        <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                         <div className={`badge p-3 font-semibold ${getStatusColor(d.status)}`}>
                                                             <p className='whitespace-no-wrap'>{ d.status === 'pending' && 'Pending' || d.status === 'inprogress' && 'Inprogress' ||d.status === 'done' && 'Done' || d.status === 'cancel' && 'Cancel'}</p>
                                                         </div>

@@ -7,6 +7,7 @@ import LoadingSpinner from "../../../Components/LoadingSpinner/LoadingSpinner";
 import { useEffect, useState } from "react";
 import useRole from "../../../Hooks/useRole";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 const AllBloodDonationreq = () => {
     const [menuVisible, setMenuVisible] = useState({});
@@ -75,6 +76,20 @@ const AllBloodDonationreq = () => {
             [id]: !prev[id]
         }));
     };
+    const getStatusColor = (status) => {
+        switch (status) {
+            case 'pending':
+                return 'bg-yellow-100 text-yellow-800';
+            case 'inprogress':
+                return 'bg-blue-100 text-blue-800';
+            case 'done':
+                return 'bg-green-100 text-green-800';
+            case 'cancel':
+                return 'bg-red-100 text-red-800';
+            default:
+                return 'bg-white text-gray-900';
+        }
+    };
 
     if (isLoading || loading) return <LoadingSpinner />;
     return (
@@ -89,8 +104,8 @@ const AllBloodDonationreq = () => {
                         <div className='py-8'>
                             <div className=' px-2 sm:px-4 py-4 overflow-x-auto'>
                                 <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
-                                    <table className='min-w-full leading-normal text-center'>
-                                        <thead className="bg-red-400" >
+                                    <table className='min-w-full font-semibold leading-normal text-center'>
+                                        <thead className="bg-gradient-to-r  from-[#5D0911] to-[#ac0000]" >
                                             <tr className="text-center">
                                                 <th
                                                     scope='col'
@@ -139,13 +154,13 @@ const AllBloodDonationreq = () => {
                                             </tr>
                                         </thead>
                                         <tbody >
-                                            {donation.map((d) => (
-                                                <tr className="text-center" key={d._id}>
+                                        {donation.map((d) => (
+                                                <tr className="text-center font-semibold" key={d._id}>
                                                     <td className='px-5  py-5 border-b border-gray-200 bg-white text-sm'>
                                                         <p className='text-gray-900 whitespace-no-wrap'> {d.RecipientName}</p>
                                                     </td>
                                                     <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                                        <p className= ' text-gray-900 whitespace-no-wrap'> {d.district}, {d.upazila}</p>
+                                                        <p className=' text-gray-900 whitespace-no-wrap'> {d.district}, {d.upazila}</p>
                                                     </td>
                                                     <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                         <p className='text-gray-900 whitespace-no-wrap'> {d.time.slice(0, 10)}</p>
@@ -153,8 +168,11 @@ const AllBloodDonationreq = () => {
                                                     <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                         <p className='text-gray-900 whitespace-no-wrap'> {d.time.slice(10, 30)}</p>
                                                     </td>
-                                                    <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                                        <p className='text-gray-900 whitespace-no-wrap'> {d.status}</p>
+                                                    <td >
+                                                        <div className={`badge p-3 font-semibold ${getStatusColor(d.status)}`}>
+                                                            <p className='whitespace-no-wrap'>{ d.status === 'pending' && 'Pending' || d.status === 'inprogress' && 'Inprogress' ||d.status === 'done' && 'Done' || d.status === 'cancel' && 'Cancel'}</p>
+                                                        </div>
+
                                                     </td>
 
                                                     {d.status === 'inprogress' || d.status === 'done' || d.status === 'cancel' ? (
@@ -169,28 +187,41 @@ const AllBloodDonationreq = () => {
 
                                                     <td className='px-5 relative py-5 border-b border-gray-200 bg-white text-sm'>
                                                         <p className='text-gray-900 whitespace-no-wrap'>  <div className="menu-wrapper">
-                                                            <div className="menu-trigger relative" onClick={(e) => toggleMenu(e, `action-${d._id}`)}>
-                                                                ⋮
+                                                            <div className="menu-trigger flex justify-center cursor-pointer relative" onClick={(e) => toggleMenu(e, `action-${d._id}`)}>
+                                                                <BsThreeDotsVertical />
                                                             </div>
                                                             {menuVisible[`action-${d._id}`] && (
-                                                                <ul className="flex gap-4 absolute top-0 right-10 justify-center bg-slate-200 rounded-lg p-1">
+                                                                <ul className="flex gap-4 absolute top-[2%] right-[53%] justify-center bg-gradient-to-r   from-[#5D0911] to-[#ac0000] rounded-lg p-2">
 
                                                                     <li>
-                                                                        <Link to={`/dashboard/reqDetail/${d._id}`}>View</Link>
+                                                                        <Link className="transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md  hover:text-[#5D0911]" to={`/dashboard/reqDetail/${d._id}`}>View</Link>
                                                                     </li>
+                                                                    {d.status === 'inprogress' || d.status === 'done' || d.status === 'cancel' ? (
+                                                                       <></>
+                                                                    ) : (
+                                                                        <li>
+                                                                        <Link
+                                                                            className="transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md  hover:text-[#5D0911]"
+                                                                            to={`/dashboard/reqUpdate/${d._id}`}>Update</Link>
+                                                                    </li>
+                                                                    )}
 
+                                                                    
                                                                     <li>
-                                                                        <Link to={`/dashboard/reqUpdate/${d._id}`}>Update</Link>
-                                                                    </li>
-                                                                    <li>
-                                                                        <button onClick={() => handleDelete(d._id)}>Delete</button>
+                                                                        <button
+                                                                            className="transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md  hover:text-[#5D0911]"
+                                                                            onClick={() => handleDelete(d._id)}>Delete</button>
                                                                     </li>
 
 
                                                                     {
                                                                         d.status === 'inprogress' && <>
-                                                                            <li><button onClick={() => handleStatusChange(d._id, 'done')}>done</button></li>
-                                                                            <li><button onClick={() => handleStatusChange(d._id, 'cancel')}>cancel</button></li>
+                                                                            <li><button
+                                                                                className="transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md  hover:text-[#5D0911]"
+                                                                                onClick={() => handleStatusChange(d._id, 'done')}>done</button></li>
+                                                                            <li><button
+                                                                                className="transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md  hover:text-[#5D0911]"
+                                                                                onClick={() => handleStatusChange(d._id, 'cancel')}>cancel</button></li>
                                                                         </>
                                                                     }
                                                                 </ul>

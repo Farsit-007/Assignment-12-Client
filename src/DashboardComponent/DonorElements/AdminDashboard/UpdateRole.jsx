@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Fragment, useState } from 'react'
 import {
   Dialog,
@@ -45,21 +46,21 @@ const UpdateRole = ({ setIsOpen, isOpen, modalHandler, user }) => {
               leaveFrom='opacity-100 scale-100'
               leaveTo='opacity-0 scale-95'
             >
-              <DialogPanel className='w-full h-56 max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
+              <DialogPanel className='w-full h-56 max-w-md transform overflow-hidden rounded-2xl bg-[#5D0911] p-6 text-left align-middle  shadow-xl transition-all'>
                 <DialogTitle
                   as='h3'
-                  className='text-lg font-medium text-center leading-6 text-gray-900'
+                  className='text-lg  font-semibold text-center leading-6 text-rose-100'
                 >
                   Update User Role
                 </DialogTitle>
                 <div className='mt-4 w-full'>
                   <Listbox value={selected} onChange={setSelected}>
                     <div className='relative mt-1'>
-                      <ListboxButton className='relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm'>
+                      <ListboxButton className='relative w-full cursor-default rounded-lg bg-rose-100 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-rose-100 sm:text-sm'>
                         <span className='block truncate'>{selected}</span>
                         <span className='pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2'>
                           <AiOutlineDown
-                            className='h-5 w-5 text-gray-400'
+                            className='h-5 w-5 text-[#5D0911]'
                             aria-hidden='true'
                           />
                         </span>
@@ -74,7 +75,7 @@ const UpdateRole = ({ setIsOpen, isOpen, modalHandler, user }) => {
                           {roles.map((role, roleIdx) => (
                             <ListboxOption
                               key={roleIdx}
-                              className='relative cursor-default select-none py-2 pl-10 pr-4 text-gray-900 data-[focus]:bg-amber-100  data-[focus]:text-amber-900'
+                              className='relative cursor-default select-none py-2 pl-10 pr-4 text-gray-900 data-[focus]:bg-amber-100  data-[focus]:text-rose-400'
                               value={role}
                             >
                               {({ selected }) => (
@@ -87,7 +88,7 @@ const UpdateRole = ({ setIsOpen, isOpen, modalHandler, user }) => {
                                     {role}
                                   </span>
                                   {selected ? (
-                                    <span className='absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600'>
+                                    <span className='absolute inset-y-0 left-0 flex items-center pl-3 text-rose-400'>
                                       <BsCheckLg
                                         className='h-5 w-5'
                                         aria-hidden='true'

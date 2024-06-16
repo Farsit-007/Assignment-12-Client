@@ -22,8 +22,8 @@ const AllUser = () => {
                     <div className='py-8'>
                         <div className=' px-2 sm:px-4 py-4 overflow-x-auto'>
                             <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
-                                <table className='min-w-full leading-normal text-center'>
-                                    <thead className="bg-red-400" >
+                                <table className='min-w-full font-semibold leading-normal text-center'>
+                                    <thead className="bg-gradient-to-r  from-[#5D0911] to-[#ac0000]" >
                                         <tr>
                                             <th
                                                 scope='col'
