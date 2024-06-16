@@ -1,15 +1,13 @@
 import { useParams } from "react-router-dom";
-import useAuth from "../../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import LoadingSpinner from "../../../Components/LoadingSpinner/LoadingSpinner";
 
 const ReqDonationDetails = () => {
-    const {id} = useParams()
-    const { user, loading } = useAuth();
+    const { id } = useParams()
     const axiosSecure = useAxiosSecure()
-    const { data: details = [], refetch ,isLoading} = useQuery({
-        queryKey: ['details',id],
+    const { data: details = [], refetch, isLoading } = useQuery({
+        queryKey: ['details', id],
         queryFn: async () => {
             const { data } = await axiosSecure.get(`/DonationDetails/${id}`)
             console.log(data);
@@ -28,69 +26,83 @@ const ReqDonationDetails = () => {
         }
         refetch();
     };
-   
+    if (isLoading) return <LoadingSpinner />;
+    const getStatusColor = (status) => {
+        switch (status) {
+            case 'pending':
+                return 'bg-yellow-100 text-yellow-800';
+            case 'inprogress':
+                return 'bg-blue-100 text-blue-800';
+            case 'done':
+                return 'bg-green-100 text-green-800';
+            case 'cancel':
+                return 'bg-red-400 text-red-800';
+            default:
+                return 'bg-white text-gray-900';
+        }
+    };
+
+
     return (
         <div>
-            <section className="">
-                <div className=" bg-cover max-h-[200px] bg-slate-50 " style={{ backgroundImage: `url(https://i.postimg.cc/j2jFM8RW/small-juvenile-bedroom-arrangement-1.webp)` }}>
 
-                    <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center  text-gray-900">
-                        <h1 className="text-4xl  mt-8 md:mt-0 font-bold leading-none sm:text-6xl xl:max-w-3xl text-white playfair ">My Booking Details</h1>
-                    </div>
-                </div>
-            </section>
-            <div className="grid grid-cols-3 gap-8">
-                <div className="col-span-3 p-2  lg:col-span-2">
-                    <div className="pt-5">
-                        <h1 className="text-xl font-semibold ">Recipient Details </h1>
+            <div className="grid mx-5 grid-cols-3 gap-5">
+                <div className="col-span-3  lg:col-span-2">
+                    <div className="my-5  rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
+                        <h1 className="text-2xl p-2 px-5 text-white font-bold ">Recipient Details </h1>
                     </div>
                     <div data-aos="fade-up"
-                        data-aos-duration="1000" className="py-8">
+                        data-aos-duration="1000" className="py-4">
                         <div className="overflow-x-auto">
-                            <table className="table text-md ">
+                            <table className="table text-[16px]">
                                 <tbody >
+                                    <tr className=''>
+                                        <th>Name </th>
+                                        <th>:</th>
+                                        <td>{details.RecipientName}</td>
+                                    </tr >
+                                    <tr className=''>
+                                        <th>Blood Group</th>
+                                        <th>:</th>
+                                        <td><div className="badge badge-accent badge-outline">
+                                            {details.blood}
+                                        </div></td>
+                                    </tr>
+                                    <tr className=''>
+
+                                        <th>Hospital Name</th>
+                                        <th>:</th>
+                                        <td>{details.HospitalName}</td>
+                                    </tr>
+
+
 
                                     <tr className=''>
 
-                                        <th>Name </th>
-                                        <td>:</td>
-                                        <td>{details.RecipientName}</td>
+                                        <th>Date </th>
+                                        <th>:</th>
+                                        <td>{details.time.slice(0, 10)} </td>
+                                    </tr>
+                                    <tr className=''>
+                                        <th>Time</th>
+                                        <th>:</th>
+                                        <td>{details.time.slice(10, 20)} </td>
+                                    </tr>
 
-                                    </tr >
+
+
 
                                     <tr className=''>
 
                                         <th>Location</th>
-                                        <td>:</td>
+                                        <th>:</th>
                                         <td className="">{details.district} , {details.upazila}</td>
 
-                                    </tr>
-
-                                    <tr className=''>
-
-                                        <th>Date & Time</th>
-                                        <td>:</td>
-                                        <td>{details.time} {}</td>
-
-
-                                    </tr>
-
-                                    <tr className=''>
-
-                                        <th>Hospital Name</th>
-                                        <td>:</td>
-                                        <td>{details.HospitalName}</td>
-                                    </tr>
-                                    <tr className=''>
-
-                                        <th>Blood Group</th>
-                                        <td>:</td>
-                                        <td>{details.blood}</td>
                                     </tr>
                                     <tr className=''>
 
                                         <th>Address</th>
-                                        <td>:</td>
+                                        <th>:</th>
                                         <td>{details.Address}</td>
                                     </tr>
 
@@ -99,33 +111,71 @@ const ReqDonationDetails = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="pt-5 flex gap-4 items-center text-4xl  ">
-
-                            <h1 className="text-2xl font-bold">Why Blood Need</h1>
+                        <div className=" bg-gradient-to-r rounded-lg from-[#5D0911] to-[#ac0000]">
+                            <h1 className="text-2xl p-2 px-5 text-white font-bold ">Reason For In Need Of Blood </h1>
                         </div>
-                        <div className="py-5 ">
-                            <p className="flex gap-2 items-center">{details.message}</p>
+
+                        <div className="rounded-lg my-3 p-2 bg-rose-100 border">
+                            <p className="">{details.message}</p>
                         </div>
                     </div>
                 </div>
-                <div className=" col-span-3 p-2  lg:col-span-1">
-                    <div className="pt-5 text-center">
-                        <h1 className="text-xl font-semibold ">Donation Status </h1>
-                        <div className="badge badge-secondary badge-outline my-4">{details.status}</div>
-                        <div className="flex justify-around">
-                       {
-                        details.status === 'inprogress' ? <>
-                        <button className="btn" onClick={() => handleStatusChange(details._id, 'done')}>done</button>
-                         <button className="btn"  onClick={() => handleStatusChange(details._id, 'cancel')}>cancel</button>
-                        </> : <></>
-                       }
+                <div className=" col-span-3 lg:col-span-1">
+                    <div className="text-center">
+                        <div className="mt-5 mb-3 ml-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
+                            <h1 className="text-2xl p-2 px-5  text-white font-bold ">Donation Status</h1>
+                        </div>
+                       
+                            
+
+                        <div className="flex justify-around items-center ml-5 border rounded-lg bg-rose-100 p-4">
+                        <div className={`badge p-4 text-[16px] font-semibold ${getStatusColor(details.status)}`}>
+                                <p className='whitespace-no-wrap'>{details.status === 'pending' && 'Pending' || details.status === 'inprogress' && 'Inprogress' || details.status === 'done' && 'Done' || details.status === 'cancel' && 'Canceled'}</p>
+                            </div>
+                            {
+                                details.status === 'inprogress' ? <>
+                                    <button className="btn btn-sm transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-2xl  hover:text-[#5D0911]" onClick={() => handleStatusChange(details._id, 'done')}>done</button>
+                                    <button className="btn btn-sm transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-2xl  hover:text-[#5D0911]" onClick={() => handleStatusChange(details._id, 'cancel')}>cancel</button>
+                                </> : <></>
+                            }
                         </div>
                     </div>
-                    <div className="pt-5 text-center">
-                        <h1 className="text-xl font-semibold ">Donor Info </h1>
-                       
+                    <div className=" ">
+                    <div className="mt-5 text-center mb-3 ml-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
+                            <h1 className="text-2xl p-2 px-5  text-white font-bold ">Donar Info</h1>
+                        </div>
+                        <div className="rounded-lg my-3 ml-5 p-3 bg-rose-100 border">
+                            <table className="font-semibold">
+                                <tbody>
+                                   <tr>
+                                   <th>
+                                        Name 
+                                    </th>
+                                    <td className="px-5">
+                                        :
+                                    </td>
+                                    <td>
+                                    {details.DonationName}
+                                    </td>
+                                   </tr>
+
+                                   <tr>
+                                   <th>
+                                         Email 
+                                    </th>
+                                    <td className="px-5">
+                                        :
+                                    </td>
+                                    <td>
+                                    {details.DonationEmail}
+                                    </td>
+                                   </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
-                   
+
                 </div>
             </div>
         </div>

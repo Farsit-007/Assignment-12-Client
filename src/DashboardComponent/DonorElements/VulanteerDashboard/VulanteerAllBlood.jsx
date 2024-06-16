@@ -143,7 +143,7 @@ const VulanteerAllBlood = () => {
                                                     </td>
                                                     <td >
                                                         <div className={`badge p-3 font-semibold ${getStatusColor(d.status)}`}>
-                                                            <p className='whitespace-no-wrap'>{ d.status === 'pending' && 'Pending' || d.status === 'inprogress' && 'Inprogress' ||d.status === 'done' && 'Done' || d.status === 'cancel' && 'Cancel'}</p>
+                                                            <p className='whitespace-no-wrap'>{ d.status === 'pending' && 'Pending' || d.status === 'inprogress' && 'Inprogress' ||d.status === 'done' && 'Done' || d.status === 'cancel' && 'Canceled'}</p>
                                                         </div>
 
                                                     </td>
