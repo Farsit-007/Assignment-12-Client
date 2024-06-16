@@ -1,16 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import PBlogCard from "./PBlogCard";
+import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 
 const BlogPost = () => {
     const axiosPublic = useAxiosPublic()
-    const { data : allblogs = [], refetch, isLoading } = useQuery({
+    const { data : allblogs = [], isLoading } = useQuery({
         queryKey: ['allblogs'],
         queryFn: async () => {
             const { data } = await axiosPublic('/publicBlog')
             return data
         }
     })
+    if (isLoading) return <LoadingSpinner />;
     return (
         <div>
                <section className="">
@@ -22,7 +24,7 @@ const BlogPost = () => {
                 </div>
             </section>
 
-            <div className="gird my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            <div className="max-w-6xl mx-auto py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                  {
                     allblogs.map(blog=><PBlogCard key={blog._id}  blog={blog}></PBlogCard>)
                  }

@@ -6,9 +6,9 @@ import useAuth from "../../Hooks/useAuth";
 import CheckoutForm from "./CheckoutForm";
 const Fundingcart = () => {
     const [showModal, setShowModal] = useState(false)
-    const[funding,setFunding] = useState('')
+    const [funding, setFunding] = useState('')
     const { user } = useAuth()
-    
+
     const handlePay = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -16,7 +16,7 @@ const Fundingcart = () => {
         setFunding(fund)
         setShowModal(true)
     }
-    const handleCencel =()=>{
+    const handleCencel = () => {
         closeModal()
     }
     const closeModal = () => {
@@ -24,48 +24,44 @@ const Fundingcart = () => {
     };
 
     return (
-        <div>
-            <section className="">
-                <div className=" bg-cover min-h-[220px] bg-slate-50 " style={{ backgroundImage: `url(https://i.postimg.cc/j2jFM8RW/small-juvenile-bedroom-arrangement-1.webp)` }}>
+        <div className="flex items-center h-[100vh] md:h-[100vh]">
 
-                    <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center  ">
-                        <h1 className="text-4xl  mt-8 md:mt-0 font-bold leading-none sm:text-6xl xl:max-w-3xl  playfair ">My Booking Details</h1>
-                    </div>
-                </div>
-            </section>
-
-            <div className="w-[70%] mx-auto border mt-10">
-                <form onSubmit={handlePay} className="space-y-3 my-4">
+            <div className="w-[80%] md:w-[70%]  mx-auto mt-20  rounded-2xl my-2 p-5 md:px-16 bg-gradient-to-r  from-[#5D0911] to-[#ac0000] border">
+                <h1 className="text-4xl text-white text-center pt-5 pb-8 font-bold leading-none sm:text-5xl xl:max-w-3xl  playfair ">Donation Details</h1>
+                <form onSubmit={handlePay} className="space-y-6 pb-8 my-4">
                     <div className="flex flex-col md:flex-row  gap-3">
                         <input disabled type="text" placeholder={user?.displayName} className="input input-bordered w-full " />
-                        <input disabled type="text" placeholder={user?.email} className="input input-bordered w-full " />
+                        <input disabled type="text" placeholder={user?.email} className="input input-bordered  w-full " />
+
                     </div>
                     <div>
-                        <input type="text" placeholder='amount' name='fund' className="input input-bordered w-full "  required/>
+                        <input type="text" placeholder='amount' name='fund' className="input input-bordered w-full " required />
                     </div>
                     <div className="flex justify-around">
-                        <input className="btn " type="submit" value='Confirm' />
+                        <input className="btn w-full" type="submit" value=' Donate' />
                     </div>
                 </form>
             </div>
 
             {showModal && (
                 <div className="fixed  inset-0 z-10 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-                    <div className="relative  w-[400px]  p-6 my-8 mx-auto bg-[#18181b6c] border border-[#cfaf45] rounded-sm">
-                        <div className="">
-                           <div className="text-center py-4">
-                           <h3 className="text-3xl font-bold text-[#cfaf45]  leading-6 ">Funding</h3>
-                           </div>
-                            <p>Name : {user?.displayName}</p>
+                    <div className="relative  w-[400px]  p-6 my-8 mx-auto bg-gradient-to-r  from-[#5D0911] to-[#ac0000] border  rounded-sm">
+                        <div className="text-rose-100 ">
+                            <div className="text-center py-4">
+                                <h3 className="text-3xl font-bold text-rose-100  leading-6 ">Funding</h3>
+                            </div>
+                          <div className="space-y-2 py-1">
+                          <p>Name : {user?.displayName}</p>
                             <p>Email : {user?.email}</p>
                             <p>Fund : ${funding}</p>
+                          </div>
                             <div className="">
                                 <Elements stripe={stripePromise}>
                                     <CheckoutForm handleCencel={handleCencel} closeModal={closeModal} funding={funding}></CheckoutForm>
                                 </Elements>
                             </div>
                         </div>
-                      
+
                     </div>
                 </div>
             )}

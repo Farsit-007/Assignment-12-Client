@@ -19,7 +19,7 @@ const SearchPage = () => {
             console.log(data);
             return data
         },
-        // enabled: false,
+        enabled: false,
     });
     const { data: donor = [] } = useQuery({
         queryKey: ['donor'],

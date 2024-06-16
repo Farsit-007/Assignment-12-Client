@@ -3,9 +3,11 @@ import '../Funding/style.css';
 import { useEffect, useState } from 'react';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({ handleCencel, funding, closeModal }) => {
   const stripe = useStripe();
+  const navigate = useNavigate()
   const { user } = useAuth()
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
@@ -75,6 +77,7 @@ const CheckoutForm = ({ handleCencel, funding, closeModal }) => {
       try {
         const { data } = await axiosSecure.post('/fund-details', paymentInfo)
        if(data.insertedId){
+        navigate('/funding')
         closeModal()
        }
         
