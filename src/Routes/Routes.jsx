@@ -29,11 +29,13 @@ import BlogPost from "../Pages/BlogPost/BlogPost";
 import PublicBlogDetails from "../Pages/BlogPost/PublicBlogDetails";
 import Funding from "../Pages/Funding/Funding";
 import Fundingcart from "../Pages/Funding/Fundingcart";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement : <ErrorPage></ErrorPage>,
         children: [
             {
                 index: true,
