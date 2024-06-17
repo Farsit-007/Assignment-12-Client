@@ -90,54 +90,61 @@ const Profile = () => {
     };
     if (isLoading || loading) return <LoadingSpinner />
     return (
-        <div className="flex justify-center bg-black items-center font-Mulish w-full bg-cover">
-            <div className="flex justify-center items-center min-h-screen">
-                <div className="flex flex-col md:w-[800px] mt-8  pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">
-                    <div className="mb-4 text-center">
+        <div className="mx-5 mt-4">
+
+            <div className="flex justify-center items-center ">
+                <div className="flex  flex-col w-full  pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">
+
+                    <div className="mb-4 bg-gradient-to-r rounded-lg from-[#5D0911] to-[#ac0000] text-center">
+                        <div className="flex justify-end px-5 pt-2">
+                            <button className="btn border-rose-100 text-rose-100 bg-transparent font-bold text-xl rounded-md" onClick={() => setIsEditing(!isEditing)}>
+                                {isEditing ? 'Cancel' : 'Edit'}
+                            </button>
+                        </div>
+                        <div className="flex flex-col gap-5 items-center justify-center">
                         <div className="avatar">
-                            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <div className="w-40 rounded-full ring ring-rose-100 ring-offset-base-100 ring-offset-2">
                                 <img src={`${users?.image}`} alt="Profile" />
                             </div>
-                            <div>
-                                <button className="btn" onClick={() => setIsEditing(!isEditing)}>
-                                    {isEditing ? 'Cancel' : 'Edit'}
-                                </button>
-                            </div>
+
                         </div>
-                        <h1 className="my-2 text-3xl font-bold">{users.role}</h1>
+                        <div className="badge bg-rose-100 font-semibold text-lg text-[#5D0911] mb-4 p-3">
+                        {users.role === 'admin' && 'Admin' || users.role === 'donor' && 'Donor' || users.role === 'volunteer' && 'Volunteer'}
+                        </div>
+                        </div>
                     </div>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                        <div className="space-y-2">
+                    <form onSubmit={handleSubmit} className="space-y-3">
+                        <div className="space-y-2 px-2">
                             <div className="flex flex-col md:flex-row gap-5">
                                 <div className="w-full">
-                                    <label htmlFor="name" className="block mb-2 text-sm">Username</label>
+                                    <label htmlFor="name" className="block text-[#5D0911] mb-2 text-sm">Username</label>
                                     <input
                                         type="text"
                                         defaultValue={users?.name}
                                         name='userName'
                                         placeholder="Enter your Name"
-                                        className="w-full px-3 py-2 border outline-none rounded-md bg-transparent"
+                                        className="w-full text-[#5D0911] px-3 py-2 border outline-none rounded-md bg-transparent"
                                         disabled={!isEditing}
                                     />
                                 </div>
                                 <div className="w-full">
-                                    <label htmlFor="email" className="block mb-2 text-sm">Email address</label>
+                                    <label htmlFor="email" className="block text-[#5D0911] mb-2 text-sm">Email address</label>
                                     <input
                                         type="email"
                                         disabled
                                         name='userEmail'
                                         defaultValue={users?.email}
                                         placeholder="Enter your email address"
-                                        className="w-full px-3 py-2 border outline-none rounded-md border-gray-200 bg-transparent"
+                                        className="w-full text-[#5D0911] px-3 py-2 border outline-none rounded-md border-gray-200 bg-transparent"
                                     />
 
                                 </div>
                             </div>
                             <div className="flex flex-col md:flex-row gap-5">
                                 <div className="w-full">
-                                    <label htmlFor="district" className="block mb-2 text-sm">Districts</label>
+                                    <label htmlFor="district" className="block mb-2 text-[#5D0911] text-sm">Districts</label>
                                     <select
-                                        className="select w-full"
+                                        className="select text-[#5D0911] w-full"
                                         name='district'
                                         onChange={handleDistrictChange}
                                         disabled={!isEditing}
@@ -150,9 +157,9 @@ const Profile = () => {
 
                                 </div>
                                 <div className="w-full">
-                                    <label htmlFor="upazila" className="block mb-2 text-sm">Upazila</label>
+                                    <label htmlFor="upazila" className="block mb-2 text-[#5D0911] text-sm">Upazila</label>
                                     <select
-                                        className="select w-full"
+                                        className="select  text-[#5D0911] w-full"
                                         name="upazila"
                                         disabled={!isEditing}
                                     >
@@ -166,30 +173,30 @@ const Profile = () => {
                             </div>
                             <div className="flex flex-col justify-center items-center md:flex-row gap-5">
                                 <div className="w-full">
-                                   
+
                                     <div className='file_upload mt-5 px-5 py-2 relative border-4 border-dotted border-gray-300 rounded-lg'>
-                                    <div className='flex flex-col w-max mx-auto text-center'>
-                                        <label>
-                                            <input
-                                                className='text-sm  w-36 hidden'
-                                                type='file'
-                                                name='image'
-                                                id='image'
-                                                disabled={!isEditing}
-                                                hidden
-                                            />
-                                            <div className='bg-rose-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-rose-500'>
-                                                Upload Image
-                                            </div>
-                                        </label>
+                                        <div className='flex flex-col w-max mx-auto text-center'>
+                                            <label>
+                                                <input
+                                                    className='text-sm  w-36 hidden'
+                                                    type='file'
+                                                    name='image'
+                                                    id='image'
+                                                    disabled={!isEditing}
+                                                    hidden
+                                                />
+                                                <div className='bg-[#5D0911] text-rose-100 border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-[#5D0911]'>
+                                                    Upload Image
+                                                </div>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                                </div>
-                                
+
                                 <div className="w-full">
-                                    <label htmlFor="blood" className="block mb-2 text-sm">Blood Group</label>
+                                    <label htmlFor="blood" className="block mb-2 text-[#5D0911] text-sm">Blood Group</label>
                                     <select
-                                        className="select w-full"
+                                        className="select text-[#5D0911] w-full"
                                         name="blood"
                                         disabled={!isEditing}
                                     >
@@ -207,8 +214,8 @@ const Profile = () => {
                             </div>
                         </div>
                         {isEditing && (
-                            <div>
-                                <input type="submit" value="Update" className="w-full btn bg-blue-500 hover:bg-blue-700 border-none text-white" />
+                            <div className="px-2">
+                                <input type="submit" value="Update" className="w-full mt-1 btn text-xl transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md  hover:text-[#5D0911]" />
                             </div>
                         )}
                     </form>
