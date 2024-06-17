@@ -137,7 +137,7 @@ const Register = () => {
                                     <input
                                         type="email"
                                         placeholder="Enter your email address"
-                                        className="w-full px-3 py-2 border outline-none rounded-md border-gray-200 bg-transparent"
+                                        className="w-full text-rose-100 px-3 py-2 border outline-none rounded-md border-gray-200 bg-transparent"
                                         {...register("userEmail", {
                                             required: "Email is required",
                                             pattern: {
@@ -155,7 +155,7 @@ const Register = () => {
                                         Districts
                                     </label>
                                     <select
-                                        className="select w-full"
+                                        className="select  w-full"
                                         {...register("district", {
                                             required: "Select District",
                                         })}
@@ -196,7 +196,7 @@ const Register = () => {
                             </div>
 
                             <div className="flex flex-col items-center md:flex-row gap-5">
-                                <div className="w-full text-rose-100">
+                                <div className="w-full  text-rose-100">
                                     <input
                                         {...register("image", {
                                             required: "Image is required",
@@ -242,7 +242,7 @@ const Register = () => {
                                         <input
                                             type={show ? "text" : "password"}
                                             placeholder="Enter your password"
-                                            className="w-full outline-none px-3 py-2 border rounded-md border-gray-200 bg-transparent"
+                                            className="w-full text-rose-100 outline-none px-3 py-2 border rounded-md border-gray-200 bg-transparent"
                                             {...register("userPassword", {
                                                 required: "Password is required",
                                                 minLength: {
@@ -271,7 +271,7 @@ const Register = () => {
                                         <input
                                             type={show ? "text" : "password"}
                                             placeholder="Enter your password"
-                                            className="w-full outline-none px-3 py-2 border rounded-md border-gray-200 bg-transparent"
+                                            className="w-full text-rose-100 outline-none px-3 py-2 border rounded-md border-gray-200 bg-transparent"
                                             {...register("confirmedPassword", {
                                                 required: "Confirm your password",
                                                 validate: (value) => value === password || "Passwords do not match",
