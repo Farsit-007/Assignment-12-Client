@@ -78,6 +78,15 @@ const SearchPage = () => {
     return (
         <div>
             <div className=" bg-cover h-[350px] md:h-[250px]  bg-[#fcdfdf] ">
+            {searchData.length === 0 && (
+                    <style>
+                        {`
+                                .section-no-cards {
+                                    margin-bottom: 95px;
+                                }
+                            `}
+                    </style>
+                )}
             
                 <div className=" max-w-6xl mx-auto pt-20 md:pt-40 px-10">
                 <form onSubmit={handleSubmit}>
@@ -124,7 +133,7 @@ const SearchPage = () => {
             </div>
                
             </div>
-            <div className="max-w-6xl mx-auto rounded-lg mt-10 bg-gradient-to-r from-[#5D0911] to-[#ac0000]">
+            <div className="max-w-6xl mx-auto rounded-lg section-no-cards mt-10 bg-gradient-to-r from-[#5D0911] to-[#ac0000]">
                  <p className="py-2 text-white px-3 font-semibold text-xl">Total Donors : {donor.Donorcount}</p>
             </div>
             

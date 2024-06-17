@@ -47,14 +47,14 @@ const Header = () => {
                     isActive ? 'bg-rose-100 focus:bg-rose-100 text-[#5D0911]' : 'text-white'
                 }`
             }
-            to='/blogpost'>Blog</NavLink></li>
+            to='/blogpost'>Blogs</NavLink></li>
             <li className="text-lg font-bold mr-2 uppercase"><NavLink
              className={({ isActive }) =>
                 `transition-colors duration-300 transform hover:bg-rose-100 rounded-md hover:text-[#5D0911] ${
                     isActive ? 'bg-rose-100 focus:bg-rose-100 text-[#5D0911]' : 'text-white'
                 }`
             }
-            to='/funding'>Fundings</NavLink></li>
+            to='/funding'>Funding</NavLink></li>
         </>
     );
 

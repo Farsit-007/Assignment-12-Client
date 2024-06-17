@@ -23,10 +23,11 @@ const Donationreq = () => {
                     </div>
                 </div>
             </section>
+            
          
             <div>
                 <div className='max-w-6xl mx-auto'>
-                    <div className='py-8'>
+                    <div className='py-[43px]'>
                         <div className=' px-2 sm:px-4 py-4 overflow-x-auto'>
                             <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
                                 <table className='min-w-full font-semibold leading-normal text-center'>

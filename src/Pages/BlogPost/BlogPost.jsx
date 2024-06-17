@@ -5,17 +5,19 @@ import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 
 const BlogPost = () => {
     const axiosPublic = useAxiosPublic()
-    const { data : allblogs = [], isLoading } = useQuery({
+    const { data: allblogs = [], isLoading } = useQuery({
         queryKey: ['allblogs'],
         queryFn: async () => {
             const { data } = await axiosPublic('/publicBlog')
             return data
         }
     })
+
     if (isLoading) return <LoadingSpinner />;
     return (
         <div>
-               <section className="">
+           
+            <section className="">
                 <div className=" bg-cover md:h-[300px] bg-slate-50 " style={{ backgroundImage: `url(https://i.postimg.cc/j2jFM8RW/small-juvenile-bedroom-arrangement-1.webp)` }}>
 
                     <div className="container flex flex-col justify-center items-center px-4 py-16 pb-24 mx-auto text-center  text-gray-900">
@@ -25,9 +27,9 @@ const BlogPost = () => {
             </section>
 
             <div className="max-w-6xl mx-auto py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                 {
-                    allblogs.map(blog=><PBlogCard key={blog._id}  blog={blog}></PBlogCard>)
-                 }
+                {
+                    allblogs.map(blog => <PBlogCard key={blog._id} blog={blog}></PBlogCard>)
+                }
             </div>
         </div>
     );
