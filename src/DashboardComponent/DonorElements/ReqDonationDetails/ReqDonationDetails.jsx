@@ -122,13 +122,13 @@ const ReqDonationDetails = () => {
                 </div>
                 <div className=" col-span-3 lg:col-span-1">
                     <div className="text-center">
-                        <div className="mt-5 mb-3 ml-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
+                        <div className="mt-5 mb-3 lg:ml-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
                             <h1 className="text-2xl p-2 px-5  text-white font-bold ">Donation Status</h1>
                         </div>
                        
                             
 
-                        <div className="flex justify-around items-center ml-5 border rounded-lg bg-rose-100 p-4">
+                        <div className="flex justify-around items-center lg:ml-5 border rounded-lg bg-rose-100 p-4">
                         <div className={`badge p-4 text-[16px] font-semibold ${getStatusColor(details.status)}`}>
                                 <p className='whitespace-no-wrap'>{details.status === 'pending' && 'Pending' || details.status === 'inprogress' && 'Inprogress' || details.status === 'done' && 'Done' || details.status === 'cancel' && 'Canceled'}</p>
                             </div>
@@ -141,10 +141,10 @@ const ReqDonationDetails = () => {
                         </div>
                     </div>
                     <div className=" ">
-                    <div className="mt-5 text-center mb-3 ml-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
+                    <div className="mt-5 text-center mb-3 lg:ml-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
                             <h1 className="text-2xl p-2 px-5  text-white font-bold ">Donar Info</h1>
                         </div>
-                        <div className="rounded-lg my-3 ml-5 p-3 bg-rose-100 border">
+                        <div className="rounded-lg my-3 lg:ml-5 p-3 bg-rose-100 border">
                             <table className="font-semibold">
                                 <tbody>
                                    <tr>

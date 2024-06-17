@@ -108,7 +108,7 @@ const Register = () => {
 
     return (
         <div
-            className="flex justify-center items-center h-[900px]  md:h-screen font-Mulish w-full bg-cover"
+            className="flex justify-center items-center  h-[900px]  md:h-screen font-Mulish w-full bg-cover"
             style={{ backgroundImage: `url(https://i.ibb.co/vQyz7LV/9012851.jpg)` }}
         >
             <div className="flex justify-center items-center min-h-screen">
