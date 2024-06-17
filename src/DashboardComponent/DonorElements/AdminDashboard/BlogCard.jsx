@@ -37,11 +37,10 @@ const BlogCard = ({ blog , refetch,role}) => {
 
     return (
 
-        <div className="flex flex-row gap-5 relative bg-[#fff5f5] rounded-xl border border-[#5D0911]">
-
+        <div className="flex flex-row gap-2 lg:gap-5 relative bg-[#fff5f5] rounded-xl border border-[#5D0911]">
 
                <div className="">
-               <figure className="rounded-xl h-[150px] md:w-[230px] overflow-hidden">
+               <figure className="rounded-xl w-[150px] h-[150px] md:w-[230px] overflow-hidden">
                     <img
                         src={blog.image}
                         className="block object-cover h-full w-full "
@@ -52,7 +51,7 @@ const BlogCard = ({ blog , refetch,role}) => {
                 </div>
                </div>
           
-            <div className="flex flex-col  justify-around w-36 md:w-40">
+            <div className="flex flex-col justify-around w-36 md:w-40">
                 <div className="space-y-2">
                 <h2 className="card-title text-[#5D0911]">{blog.title.slice(0,20)}</h2>
                 <p className="text-[#5D0911]">{blog.content.slice(0,30)}...</p>

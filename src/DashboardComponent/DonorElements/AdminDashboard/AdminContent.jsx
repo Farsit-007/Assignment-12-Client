@@ -24,7 +24,7 @@ const AdminContent = () => {
     return (
         <div>
             
-            <div className="flex justify-between my-5 mx-4 md:mx-5 px-4 py-1  items-center rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000] ">
+            <div className="flex justify-between my-5 mx-1 md:mx-3 lg:mx-5 px-4 py-1  items-center rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000] ">
                 <div>
                     <select
                         onChange={e => setFilter(e.target.value)}
@@ -40,7 +40,7 @@ const AdminContent = () => {
                 </div>
                 <Link to='/dashboard/add-blogs' className="btn border-rose-100 text-rose-100 bg-transparent font-bold text-xl rounded-md">Create Blogs</Link>
             </div>
-            <div className=" grid grid-cols-1 lg:grid-cols-2 gap-5  mx-4 md:mx-5 ">
+            <div className=" grid grid-cols-1 lg:grid-cols-2 gap-5 mx-1 md:mx-3 lg:mx-5 ">
                 {
                     Allblogs.map(blog => <BlogCard role={role} key={blog._id} blog={blog} refetch={refetch}></BlogCard>)
                 }
