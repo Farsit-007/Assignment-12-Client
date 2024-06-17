@@ -29,7 +29,6 @@ import BlogPost from "../Pages/BlogPost/BlogPost";
 import PublicBlogDetails from "../Pages/BlogPost/PublicBlogDetails";
 import Funding from "../Pages/Funding/Funding";
 import Fundingcart from "../Pages/Funding/Fundingcart";
-import Sidebar2 from "./Sidebar2";
 
 const router = createBrowserRouter([
     {
@@ -43,10 +42,6 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
-            },
-            {
-                path: '/register',
-                element: <Register></Register>
             },
             {
                 path: '/donationreq',
@@ -83,9 +78,10 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path : '/test',
-        element : <Sidebar2></Sidebar2>
+        path: '/register',
+        element: <Register></Register>
     },
+   
     {
         path: '/dashboard',
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,

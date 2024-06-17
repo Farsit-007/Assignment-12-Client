@@ -108,30 +108,30 @@ const Register = () => {
 
     return (
         <div
-            className="flex justify-center items-center min-h-[700px] font-Mulish w-full bg-cover"
-            style={{ backgroundImage: `url(https://i.ibb.co/Sf0ws3p/2151004024-1.webp)` }}
+            className="flex justify-center items-center h-[900px]  md:h-screen font-Mulish w-full bg-cover"
+            style={{ backgroundImage: `url(https://i.ibb.co/vQyz7LV/9012851.jpg)` }}
         >
             <div className="flex justify-center items-center min-h-screen">
-                <div className="flex flex-col md:w-[800px] mt-8 p-10 pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">
+                <div className="flex flex-col md:w-[800px]  p-10 pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">
                     <div className="mb-4 text-center border-b-2">
-                        <h1 className="my-2 text-3xl font-bold">Register your account</h1>
+                        <h1 className="my-2 text-3xl text-rose-100 font-bold">Register your account</h1>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                         <div className="space-y-2">
                             <div className="flex flex-col md:flex-row gap-5">
-                                <div className="w-full">
-                                    <label htmlFor="name" className="block mb-2 text-sm">
+                                <div className="w-full ">
+                                    <label htmlFor="name" className="block mb-2 text-rose-100 text-sm">
                                         Username
                                     </label>
                                     <input
                                         type="text"
                                         placeholder="Enter your Name"
-                                        className="w-full px-3 py-2 border outline-none rounded-md bg-transparent"
+                                        className="w-full text-rose-100 px-3 py-2 border border-rose-100 outline-none rounded-md bg-transparent"
                                         {...register("userName")}
                                     />
                                 </div>
                                 <div className="w-full">
-                                    <label htmlFor="email" className="block mb-2 text-sm">
+                                    <label htmlFor="email" className="block mb-2 text-rose-100 text-sm">
                                         Email address
                                     </label>
                                     <input
@@ -151,7 +151,7 @@ const Register = () => {
                             </div>
                             <div className="flex flex-col md:flex-row gap-5">
                                 <div className="w-full">
-                                    <label htmlFor="district" className="block mb-2 text-sm">
+                                    <label htmlFor="district" className="block text-rose-100 mb-2 text-sm">
                                         Districts
                                     </label>
                                     <select
@@ -173,7 +173,7 @@ const Register = () => {
                                     {errors.district && <small className="text-red-500 font-bold">{errors.district.message}</small>}
                                 </div>
                                 <div className="w-full">
-                                    <label htmlFor="upazila" className="block mb-2 text-sm">
+                                    <label htmlFor="upazila" className="block text-rose-100 mb-2 text-sm">
                                         Upazila
                                     </label>
                                     <select
@@ -196,17 +196,17 @@ const Register = () => {
                             </div>
 
                             <div className="flex flex-col items-center md:flex-row gap-5">
-                                <div className="w-full">
+                                <div className="w-full text-rose-100">
                                     <input
                                         {...register("image", {
                                             required: "Image is required",
                                         })}
                                         type="file"
-                                        className="p-2 w-full max-w-xs"
+                                        className="p-2 w-full  max-w-xs"
                                     />
                                 </div>
                                 <div className="w-full">
-                                    <label htmlFor="name" className="block mb-2 text-sm">
+                                    <label htmlFor="name" className="block text-rose-100 mb-2 text-sm">
                                         Blood Group
                                     </label>
                                     <select
@@ -234,7 +234,7 @@ const Register = () => {
                             <div className="flex flex-col md:flex-row gap-5">
                                 <div className="w-full">
                                     <div className="flex justify-between mb-2">
-                                        <label htmlFor="password" className="text-sm">
+                                        <label htmlFor="password" className="text-sm text-rose-100">
                                             Password
                                         </label>
                                     </div>
@@ -263,7 +263,7 @@ const Register = () => {
                                 </div>
                                 <div className="w-full">
                                     <div className="flex justify-between mb-2">
-                                        <label htmlFor="ConfirmPassword" className="text-sm">
+                                        <label htmlFor="ConfirmPassword" className="text-sm text-rose-100">
                                             Confirm Password
                                         </label>
                                     </div>
@@ -291,10 +291,10 @@ const Register = () => {
                             <input
                                 type="submit"
                                 value="Register"
-                                className="w-full btn bg-blue-500 hover:bg-blue-700 border-none text-white"
+                                className="w-full btn text-xl transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md  hover:text-[#5D0911]"
                             />
                         </div>
-                        <p className="p-2 text-sm text-center text-gray-300">
+                        <p className="p-2 text-sm text-center text-rose-100">
                             Already have an account?
                             <Link to="/login" className="hover:underline text-red-600 pl-1 font-extrabold">
                                 Login
