@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import useRole from "../../../Hooks/useRole";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { Helmet } from "react-helmet-async";
 
 const AllBloodDonationreq = () => {
     const [menuVisible, setMenuVisible] = useState({});
@@ -94,8 +95,11 @@ const AllBloodDonationreq = () => {
     if (isLoading || loading) return <LoadingSpinner />;
     return (
         <div className="">
+            <Helmet>
+            <title> Hope In Drops | All Blood Donation</title>
+            </Helmet>
             <div>
-                <WelsomeMessage message={`${user.displayName} Welcome To Blood Donation`}></WelsomeMessage>
+                <WelsomeMessage message={`Hey ${user.displayName} Welcome To Hope In Drops`}></WelsomeMessage>
             </div>
             {donation.length > 0 && (
 

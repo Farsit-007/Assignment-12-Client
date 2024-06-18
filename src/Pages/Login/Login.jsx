@@ -5,6 +5,7 @@ import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
     const { loginUser, user, loading } = useAuth();
     const location = useLocation()
@@ -44,6 +45,10 @@ const Login = () => {
     }
     return (
         <div className="flex justify-center bg-cover items-center min-h-screen" style={{ backgroundImage: `url(https://i.ibb.co/vQyz7LV/9012851.jpg)` }}>
+           <Helmet>
+            <title> Hope In Drops | Login</title>
+            </Helmet>
+           
             <div className="flex  flex-col animate__animated animate__zoomIn bg-opacity-5 backdrop-blur-3xl bg-transparent-white lg:mt-10 md:w-[450px] p-10 pb-4 pt-2 rounded-xl ">
                 <div className="mb-4 text-center border-b-2">
                     <h1 className="my-2 text-3xl font-bold text-rose-100 ">Login</h1>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import SearchCard from "./SearchCard";
+import { Helmet } from "react-helmet-async";
 
 const SearchPage = () => {
     const [districts, setDistricts] = useState([]);
@@ -77,6 +78,9 @@ const SearchPage = () => {
     };
     return (
         <div>
+            <Helmet>
+            <title> Hope In Drops | Search Donor</title>
+            </Helmet>
             <div className=" bg-cover h-[350px] md:h-[250px]  bg-[#fcdfdf] ">
             {searchData.length === 0 && (
                     <style>

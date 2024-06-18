@@ -4,6 +4,7 @@ import AlluserTable from "./AlluserTable";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import WelsomeMessage from "../../../Components/WelcomeMessage/WelsomeMessage";
 import useAuth from "../../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const AllUser = () => {
     const axiosSecure = useAxiosSecure()
@@ -22,9 +23,12 @@ const AllUser = () => {
 
         <div>
             <div>
-                <WelsomeMessage message={`${user.displayName} Welcome To Blood Donation`}></WelsomeMessage>
+                <WelsomeMessage message={`Hey ${user.displayName} Welcome To Hope In Drops`}></WelsomeMessage>
             </div>
-         
+
+         <Helmet>
+            <title> Hope In Drops | All Users</title>
+            </Helmet>
                 <div className=''>
                     <div className=' mx-5 py-4 overflow-x-auto'>
                         <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>

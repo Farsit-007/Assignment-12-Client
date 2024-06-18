@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import useRole from "../../../Hooks/useRole";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import LoadingSpinner from "../../../Components/LoadingSpinner/LoadingSpinner";
+import { Helmet } from "react-helmet-async";
 
 const AdminContent = () => {
     const [filter, setFilter] = useState('');
@@ -23,7 +24,9 @@ const AdminContent = () => {
     if (isLoading) return <LoadingSpinner />
     return (
         <div>
-            
+            <Helmet>
+            <title> Hope In Drops | Content Management</title>
+            </Helmet>
             <div className="flex justify-between my-5 mx-1 md:mx-3 lg:mx-5 px-4 py-1  items-center rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000] ">
                 <div>
                     <select

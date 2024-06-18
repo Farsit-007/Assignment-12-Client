@@ -92,7 +92,7 @@ const DonorDashboard = () => {
     return (
         <div className="">
             <div>
-                <WelsomeMessage message={`${user.displayName} Welcome To Blood Donation`}></WelsomeMessage>
+                <WelsomeMessage message={`Hey ${user.displayName} Welcome To Hope In Drops`}></WelsomeMessage>
             </div>
             {donation.length > 0 && (
 

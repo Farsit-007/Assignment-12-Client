@@ -8,6 +8,7 @@ import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 import { FaDroplet } from "react-icons/fa6";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 const DonationDetails = () => {
     const { id } = useParams()
     const [showModal, setShowModal] = useState(false);
@@ -64,6 +65,9 @@ const DonationDetails = () => {
     if (isLoading || loading) return <LoadingSpinner />;
     return (
         <div>
+            <Helmet>
+            <title> Hope In Drops | Donation Details</title>
+            </Helmet>
             <section className="">
                 <div className=" bg-cover md:h-[300px] bg-slate-50 " style={{ backgroundImage: `url(https://i.postimg.cc/j2jFM8RW/small-juvenile-bedroom-arrangement-1.webp)` }}>
 

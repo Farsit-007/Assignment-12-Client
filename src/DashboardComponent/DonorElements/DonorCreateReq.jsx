@@ -9,6 +9,7 @@ import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 const DonorCreateReq = () => {
     const { user, loading } = useAuth();
     const [value, setValue] = useState(dayjs());
@@ -78,6 +79,9 @@ const DonorCreateReq = () => {
     if (loading) return <LoadingSpinner />
     return (
         <div className="flex justify-center items-center  bg-cover">
+            <Helmet>
+            <title> Hope In Drops | Create Donation Request</title>
+            </Helmet>
             <div className="bg-[#5D0911] rounded-lg px-20">
             <div className="flex justify-center items-center min-h-screen">
                 <div className="flex flex-col md:w-[800px]  pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">

@@ -21,7 +21,7 @@ const VulanteerDashboard = () => {
     return (
         <div>
             <div>
-                <WelsomeMessage message={`${user.displayName} Welcome To Blood Donation`}></WelsomeMessage>
+                <WelsomeMessage message={`Hey ${user.displayName} Welcome To Hope In Drops`}></WelsomeMessage>
             </div>
 
             <div className='mx-5 md:mx-10 lg:mx-5  flex flex-col lg:flex-row justify-between gap-5 lg:gap-0'>

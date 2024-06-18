@@ -5,6 +5,7 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useRole from "../../../Hooks/useRole";
 import BlogCard from "../AdminDashboard/BlogCard";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const VolanteerContent = () => {
     const [filter, setFilter] = useState('');
@@ -22,6 +23,9 @@ const VolanteerContent = () => {
     },[filter])
     return (
         <div>
+            <Helmet>
+            <title> Hope In Drops | Content Management</title>
+            </Helmet>
              <div className="flex justify-between my-5 mx-4 md:mx-5 px-4 py-1  items-center rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000] ">
                 <div>
                     <select

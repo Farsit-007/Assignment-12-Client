@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
+import { Helmet } from "react-helmet-async";
 
 const BlogDetails = () => {
     const { id } = useParams()
@@ -16,6 +17,9 @@ const BlogDetails = () => {
     if (isLoading) return <LoadingSpinner />;
     return (
         <div className="mx-4 md:mx-5  ">
+            <Helmet>
+            <title> Hope In Drops | Blog Details</title>
+            </Helmet>
             <div className="my-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
                 <h1 className="text-2xl p-2 px-5 text-white font-bold ">{Bdetails.title} </h1>
             </div>

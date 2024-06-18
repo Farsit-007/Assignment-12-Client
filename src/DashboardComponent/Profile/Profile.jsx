@@ -6,6 +6,7 @@ import axios from "axios";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 const image_hosting_key = "6c6d9827b1a74ce39e723830557272b6";
 const image_hosting_Api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
@@ -92,7 +93,9 @@ const Profile = () => {
     if (isLoading || loading) return <LoadingSpinner />
     return (
         <div className="mx-5 mt-4">
-
+               <Helmet>
+            <title> Hope In Drops | Profile</title>
+            </Helmet>
             <div className="flex justify-center items-center ">
                 <div className="flex  flex-col w-full  pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">
 

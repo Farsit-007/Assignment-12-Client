@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import PBlogCard from "./PBlogCard";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
+import { Helmet } from "react-helmet-async";
 
 const BlogPost = () => {
     const axiosPublic = useAxiosPublic()
@@ -16,7 +17,9 @@ const BlogPost = () => {
     if (isLoading) return <LoadingSpinner />;
     return (
         <div>
-           
+           <Helmet>
+            <title> Hope In Drops | Blogs</title>
+            </Helmet>
             <section className="">
                 <div className=" bg-cover md:h-[300px] bg-slate-50 " style={{ backgroundImage: `url(https://i.postimg.cc/j2jFM8RW/small-juvenile-bedroom-arrangement-1.webp)` }}>
 

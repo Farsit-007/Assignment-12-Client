@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import LoadingSpinner from "../../../Components/LoadingSpinner/LoadingSpinner";
+import { Helmet } from "react-helmet-async";
 
 const ReqDonationDetails = () => {
     const { id } = useParams()
@@ -10,7 +11,6 @@ const ReqDonationDetails = () => {
         queryKey: ['details', id],
         queryFn: async () => {
             const { data } = await axiosSecure.get(`/DonationDetails/${id}`)
-            console.log(data);
             return data
         }
     });
@@ -45,7 +45,9 @@ const ReqDonationDetails = () => {
 
     return (
         <div>
-
+            <Helmet>
+                <title> Hope In Drops | Donation Request Details</title>
+            </Helmet>
             <div className="grid mx-5 grid-cols-3 gap-5">
                 <div className="col-span-3  lg:col-span-2">
                     <div className="my-5  rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
@@ -125,11 +127,11 @@ const ReqDonationDetails = () => {
                         <div className="mt-5 mb-3 lg:ml-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
                             <h1 className="text-2xl p-2 px-5  text-white font-bold ">Donation Status</h1>
                         </div>
-                       
-                            
+
+
 
                         <div className="flex justify-around items-center lg:ml-5 border rounded-lg bg-rose-100 p-4">
-                        <div className={`badge p-4 text-[16px] font-semibold ${getStatusColor(details.status)}`}>
+                            <div className={`badge p-4 text-[16px] font-semibold ${getStatusColor(details.status)}`}>
                                 <p className='whitespace-no-wrap'>{details.status === 'pending' && 'Pending' || details.status === 'inprogress' && 'Inprogress' || details.status === 'done' && 'Done' || details.status === 'cancel' && 'Canceled'}</p>
                             </div>
                             {
@@ -140,43 +142,43 @@ const ReqDonationDetails = () => {
                             }
                         </div>
                     </div>
-                   {
-                    details.status !== "pending" &&  <div className=" ">
-                    <div className="mt-5 text-center mb-3 lg:ml-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
-                            <h1 className="text-2xl p-2 px-5  text-white font-bold ">Donar Info</h1>
-                        </div>
-                        <div className="rounded-lg my-3 lg:ml-5 p-3 bg-rose-100 border">
-                            <table className="font-semibold">
-                                <tbody>
-                                   <tr>
-                                   <th>
-                                        Name 
-                                    </th>
-                                    <td className="px-5">
-                                        :
-                                    </td>
-                                    <td>
-                                    {details.DonationName}
-                                    </td>
-                                   </tr>
+                    {
+                        details.status !== "pending" && <div className=" ">
+                            <div className="mt-5 text-center mb-3 lg:ml-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
+                                <h1 className="text-2xl p-2 px-5  text-white font-bold ">Donar Info</h1>
+                            </div>
+                            <div className="rounded-lg my-3 lg:ml-5 p-3 bg-rose-100 border">
+                                <table className="font-semibold">
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                Name
+                                            </th>
+                                            <td className="px-5">
+                                                :
+                                            </td>
+                                            <td>
+                                                {details.DonationName}
+                                            </td>
+                                        </tr>
 
-                                   <tr>
-                                   <th>
-                                         Email 
-                                    </th>
-                                    <td className="px-5">
-                                        :
-                                    </td>
-                                    <td>
-                                    {details.DonationEmail}
-                                    </td>
-                                   </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                        <tr>
+                                            <th>
+                                                Email
+                                            </th>
+                                            <td className="px-5">
+                                                :
+                                            </td>
+                                            <td>
+                                                {details.DonationEmail}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-                    </div> 
-                   }
+                        </div>
+                    }
 
                 </div>
             </div>

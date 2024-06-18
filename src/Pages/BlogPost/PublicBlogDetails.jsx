@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
+import { Helmet } from "react-helmet-async";
 
 const PublicBlogDetails = () => {
     const { id } = useParams()
@@ -24,6 +25,9 @@ const PublicBlogDetails = () => {
     if (isLoading ) return <LoadingSpinner />;
     return (
         <div className="">
+            <Helmet>
+            <title> Hope In Drops | Blogs Details</title>
+            </Helmet>
             <section className="">
                 <div className=" bg-cover md:h-[300px] bg-slate-50 " style={{ backgroundImage: `url(https://i.postimg.cc/j2jFM8RW/small-juvenile-bedroom-arrangement-1.webp)` }}>
 

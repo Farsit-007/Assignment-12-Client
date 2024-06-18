@@ -7,6 +7,7 @@ import useAuth from "../../Hooks/useAuth";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 const image_hosting_key = "6c6d9827b1a74ce39e723830557272b6";
 const image_hosting_Api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
@@ -115,6 +116,9 @@ const Register = () => {
             className="flex justify-center items-center  h-[900px]  md:h-screen font-Mulish w-full bg-cover"
             style={{ backgroundImage: `url(https://i.ibb.co/vQyz7LV/9012851.jpg)` }}
         >
+            <Helmet>
+            <title> Hope In Drops | Register</title>
+            </Helmet>
             <div className="flex justify-center items-center min-h-screen">
                 <div className="flex flex-col md:w-[800px]  p-10 pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">
                     <div className="mb-4 text-center border-b-2">

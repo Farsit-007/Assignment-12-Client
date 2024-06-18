@@ -9,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { Helmet } from "react-helmet-async";
 const MyReqDon = () => {
     const [itemPerPage, setItemPerPage] = useState(8)
     const menuRef = useRef()
@@ -132,8 +133,11 @@ const MyReqDon = () => {
 
     return (
         <div className="">
+            <Helmet>
+            <title> Hope In Drops | My Donation</title>
+            </Helmet>
             <div>
-                <WelsomeMessage message={`${user.displayName} Welcome To Blood Donation`}></WelsomeMessage>
+                <WelsomeMessage message={`Hey ${user.displayName} Welcome To Hope In Drops`}></WelsomeMessage>
             </div>
             <div className="px-5 flex justify-center">
                 <select

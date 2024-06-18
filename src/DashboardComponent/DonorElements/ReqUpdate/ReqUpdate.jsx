@@ -10,6 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 const ReqUpdate = () => {
     const { id } = useParams()
     const { user, loading } = useAuth();
@@ -89,6 +90,9 @@ const ReqUpdate = () => {
     if (loading) return <LoadingSpinner />
     return (
         <div className="flex justify-center  items-center ">
+            <Helmet>
+            <title> Hope In Drops | Donation Request Update</title>
+            </Helmet>
             <div className="bg-[#5D0911] rounded-lg px-20">
                 <div className="flex justify-center items-center min-h-screen">
                     <div className="flex flex-col md:w-[800px] pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">

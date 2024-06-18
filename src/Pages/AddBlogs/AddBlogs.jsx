@@ -7,6 +7,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 const stripHtml = (html) => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     return doc.body.textContent || "";
@@ -64,6 +65,9 @@ const AddBlogs = () => {
     }), []);
     return (
         <div>
+            <Helmet>
+            <title> Hope In Drops | Create Blogs</title>
+            </Helmet>
             <div className=" w-[90%] mx-auto mt-5">
             <div className="my-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
                         <h1 className="text-2xl p-2 px-5 text-white font-bold ">The Journey of Donated Blood</h1>
