@@ -3,8 +3,8 @@ import im from "../../../public/LOGO.png"
 const Footer = () => {
     return (
         <div>
-            <div className="font-Meri bg-[#05030a]">
-                <footer className="footer py-10 max-w-6xl mx-auto footer-center lg:footer pb-2 bg-[#05030a] text-white">
+            <div className="bg-gradient-to-r from-[#5D0911] to-[#ac0000]">
+                <footer className="footer py-10 max-w-6xl mx-auto footer-center lg:footer pb-2 bg-gradient-to-r from-[#5D0911] to-[#ac0000] text-white">
                     <aside>
                         <div className=''>
                             <figure className='h-[100px] w-[250px]' >
