@@ -70,8 +70,8 @@ const BlogCard = ({ blog , refetch,role}) => {
           
             <div className="flex flex-col justify-around w-36 md:w-40">
                 <div className="space-y-2">
-                <h2 className="card-title text-[#5D0911]">{blog.title.slice(0,20)}</h2>
-                <p className="text-[#5D0911]">{blog.content.slice(0,30)}...</p>
+                <h2 className="card-title text-[#5D0911]">{blog.title}</h2>
+                <p className="text-[#5D0911]">{blog.content.slice(0,20)}...</p>
                 </div>
                 <div className="flex gap-3">
                     <Link to={`/dashboard/blog-details/${blog._id}`} className="btn btn-sm transition-colors duration-300 transform hover:border-[#5D0911]  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-2xl  hover:text-[#5D0911]">View</Link>

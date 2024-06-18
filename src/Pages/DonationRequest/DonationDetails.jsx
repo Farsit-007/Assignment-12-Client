@@ -34,7 +34,7 @@ const DonationDetails = () => {
     const handleStatusChange = async (blood, id, status) => {
         const isMatched = Userdetails.some(d => d.blood !== blood)
         if (isMatched) {
-            return toast.error("Blood Not Matched With Requirement")
+            return toast.error("Your Blood Not Matched With Requirement")
         }
         const donInfo = {
             status,
@@ -48,7 +48,7 @@ const DonationDetails = () => {
                 if (data.modifiedCount > 0) {
                     
                     refetch();
-                    toast.success("Donate Blood Spread Love")
+                   
                 }
             } catch (error) {
                 console.log(error);
@@ -59,6 +59,7 @@ const DonationDetails = () => {
     };
 
     const closeModal = () => {
+        toast.success("Donate Blood Spread Love")
         setShowModal(false);
         navigate('/')
     };

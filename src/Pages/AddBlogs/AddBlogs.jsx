@@ -117,7 +117,7 @@ const AddBlogs = () => {
                     </div>
 
                     <div>
-                        <input type="submit" value="Update" className="w-full btn transition-colors duration-300 transform font-bold text-xl text-rose-100 badge  bg-[#5D0911] hover:bg-rose-100 rounded-lg  hover:text-[#5D0911]" />
+                        <input type="submit" value="Post" className="w-full btn transition-colors duration-300 transform font-bold text-xl text-rose-100 badge  bg-[#5D0911] hover:bg-rose-100 rounded-lg  hover:text-[#5D0911]" />
                     </div>
 
                 </form>

@@ -20,7 +20,7 @@ const BlogPost = () => {
            <Helmet>
             <title> Hope In Drops | Blogs</title>
             </Helmet>
-            <section className="">
+            <section className="mb-[69px]">
                 <div className=" bg-cover md:h-[300px] bg-slate-50 " style={{ backgroundImage: `url(./dd.jpg)` }}>
 
                     <div className="container flex flex-col justify-center items-center px-4 py-16 pb-24 mx-auto text-center  text-gray-900">
@@ -29,9 +29,9 @@ const BlogPost = () => {
                 </div>
             </section>
 
-            <div className="max-w-6xl mx-auto py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="max-w-6xl mx-auto py-10 px-4 lg:px-0  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {
-                    allblogs.map(blog => <PBlogCard key={blog._id} blog={blog}></PBlogCard>)
+                    allblogs.filter(b=> b.status ==='published').map(blog => <PBlogCard key={blog._id} blog={blog}></PBlogCard>)
                 }
             </div>
         </div>

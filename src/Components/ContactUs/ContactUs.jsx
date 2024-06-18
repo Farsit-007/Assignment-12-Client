@@ -61,7 +61,7 @@ const ContactUs = () => {
                             </label>
                             <label className="block">
                                 <span className="mb-1 text-white">Message</span>
-                                <textarea ref={msgref} rows="3"  placeholder="Message" className="block w-full text-rose-100 focus:ring focus:ring-opacity-75 p-2 focus:ring-violet-400 "></textarea>
+                                <textarea ref={msgref} rows="3"  placeholder="Message" className="block w-full text-gray-500 focus:ring focus:ring-opacity-75 p-2 focus:ring-violet-400 "></textarea>
                             </label>
                             <button type="submit" className="bg-transparent  text-lg font-bold border border-rose-100 text-white  p-2 flex gap-1 items-center hover:text-[#5D0911] justify-center hover:bg-rose-100 px-4 transition-all duration-1000 ">Submit</button>
                         </form>

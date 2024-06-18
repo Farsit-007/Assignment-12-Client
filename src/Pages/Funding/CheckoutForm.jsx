@@ -110,10 +110,10 @@ const CheckoutForm = ({ handleCencel, funding, closeModal }) => {
           }}
         />
         <div className='flex gap-5 justify-center'>
-          <button className='btn' type="submit" disabled={!stripe || !clientSecret || processing}>
+          <button className='btn transition-colors duration-300 transform font-bold text-xl text-rose-100 badge  bg-[#5D0911] hover:bg-rose-100 rounded-lg  hover:text-[#5D0911]' type="submit" disabled={!stripe || !clientSecret || processing}>
             Payment
           </button>
-          <button className='btn' onClick={handleCencel}>Cancel</button>
+          <button className='btn transition-colors duration-300 transform font-bold text-xl text-rose-100 badge  bg-[#5D0911] hover:bg-rose-100 rounded-lg  hover:text-[#5D0911]' onClick={handleCencel}>Cancel</button>
         </div>
       </form>
       {cardError && <p className='text-red-600 '>{cardError}</p>}
