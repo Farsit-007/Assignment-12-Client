@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 const Login = () => {
     const { loginUser,user,loading} = useAuth();
     const location = useLocation()
@@ -25,7 +26,7 @@ const Login = () => {
         const { userEmail, userPassword} = data;
             loginUser(userEmail, userPassword)
                 .then(result => {
-                    // toast.success("Logged in successfully");
+                    toast.success("Logged in successfully");
                
                         navigate(location.state ? location.state : '/');
                         reset();
@@ -33,7 +34,7 @@ const Login = () => {
                 })
                 .catch(error => {
                     if (error.message) {
-                        // toast.error("Wrong email/password");
+                        toast.error("Wrong email/password");
                         reset();
                     }
                 });

@@ -140,7 +140,8 @@ const ReqDonationDetails = () => {
                             }
                         </div>
                     </div>
-                    <div className=" ">
+                   {
+                    details.status !== "pending" &&  <div className=" ">
                     <div className="mt-5 text-center mb-3 lg:ml-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
                             <h1 className="text-2xl p-2 px-5  text-white font-bold ">Donar Info</h1>
                         </div>
@@ -174,7 +175,8 @@ const ReqDonationDetails = () => {
                             </table>
                         </div>
 
-                    </div>
+                    </div> 
+                   }
 
                 </div>
             </div>

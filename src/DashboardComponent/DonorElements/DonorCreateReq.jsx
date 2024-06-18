@@ -6,8 +6,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { renderTimeViewClock } from '@mui/x-date-pickers/timeViewRenderers';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import dayjs from "dayjs";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 const DonorCreateReq = () => {
     const { user, loading } = useAuth();
@@ -48,6 +48,7 @@ const DonorCreateReq = () => {
             time : time,
             status : 'pending'
         }
+        toast.success("Your Donation Request Is Now On Pending")
         const {data} = await axiosSecure.post('/create-donation-request',donationReq)
         if(data.insertedId){
             navigate('/dashboard')
@@ -76,15 +77,16 @@ const DonorCreateReq = () => {
     };
     if (loading) return <LoadingSpinner />
     return (
-        <div className="flex justify-center bg-slate-400 items-center font-Mulish w-full bg-cover">
+        <div className="flex justify-center items-center  bg-cover">
+            <div className="bg-[#5D0911] rounded-lg px-20">
             <div className="flex justify-center items-center min-h-screen">
-                <div className="flex flex-col md:w-[800px] mt-8  pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">
+                <div className="flex flex-col md:w-[800px]  pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="space-y-2">
                             <div className="flex flex-col md:flex-row gap-5">
                                 <div className="w-full">
-                                    <label htmlFor="name" className="block mb-2 text-sm">Requester Name</label>
+                                    <label htmlFor="name" className="block text-rose-100 mb-2 text-sm">Requester Name</label>
                                     <input
                                         type="text"
                                         name='ReqName'
@@ -92,11 +94,11 @@ const DonorCreateReq = () => {
                                         required
                                         defaultValue={user?.displayName}
                                         placeholder="Enter your Name"
-                                        className="w-full px-3 py-2 border outline-none rounded-md bg-transparent"
+                                        className="w-full px-3 text-rose-100 py-2 border outline-none rounded-md bg-transparent"
                                     />
                                 </div>
                                 <div className="w-full">
-                                    <label htmlFor="email" className="block mb-2 text-sm">Requester Email</label>
+                                    <label htmlFor="email" className="block mb-2 text-rose-100 text-sm">Requester Email</label>
                                     <input
                                         type="email"
                                         disabled
@@ -104,27 +106,27 @@ const DonorCreateReq = () => {
                                         defaultValue={user?.email}
                                         name='ReqEmail'
                                         placeholder="Enter your email address"
-                                        className="w-full px-3 py-2 border outline-none rounded-md border-gray-200 bg-transparent"
+                                        className="w-full text-rose-100 px-3 py-2 border outline-none rounded-md border-gray-200 bg-transparent"
                                     />
 
                                 </div>
                             </div>
                             <div className="flex flex-col md:flex-row gap-5">
                                 <div className="w-full">
-                                    <label htmlFor="name" className="block mb-2 text-sm">Recipient Name</label>
+                                    <label htmlFor="name" className="block mb-2 text-rose-100 text-sm">Recipient Name</label>
                                     <input
                                         type="text"
                                         name='PName'
                                         required
                                         placeholder="Enter your Name"
-                                        className="w-full px-3 py-2 border outline-none rounded-md bg-transparent"
+                                        className="w-full px-3 text-rose-100 py-2 border outline-none rounded-md bg-transparent"
                                     />
                                 </div>
 
                             </div>
                             <div className="flex flex-col md:flex-row gap-5">
                                 <div className="w-full">
-                                    <label htmlFor="district" className="block mb-2 text-sm">Districts</label>
+                                    <label htmlFor="district" className="block text-rose-100 mb-2 text-sm">Districts</label>
                                     <select
                                         className="select w-full"
                                         name='district'
@@ -139,9 +141,9 @@ const DonorCreateReq = () => {
 
                                 </div>
                                 <div className="w-full">
-                                    <label htmlFor="upazila" className="block mb-2 text-sm">Upazila</label>
+                                    <label htmlFor="upazila" className="block mb-2 text-rose-100  text-sm">Upazila</label>
                                     <select
-                                        className="select w-full"
+                                        className="select w-full "
                                         name="upazila"
                                         required
                                     >
@@ -155,19 +157,19 @@ const DonorCreateReq = () => {
                             </div>
                             <div className="flex flex-col items-center md:flex-row gap-5">
                                 <div className="w-full">
-                                    <label htmlFor="name" className="block mb-2 text-sm">Hospital Name</label>
+                                    <label htmlFor="name" className="block text-rose-100 mb-2 text-sm">Hospital Name</label>
                                     <input
                                         type="text"
                                         required
                                         name='HospitalName'
                                         placeholder="Enter your Name"
-                                        className="w-full px-3 py-2 border outline-none rounded-md bg-transparent"
+                                        className="w-full px-3 py-2 text-rose-100 border outline-none rounded-md bg-transparent"
                                     />
                                 </div>
                                 <div className="w-full">
-                                    <label htmlFor="blood" className="block mb-2 text-sm">Blood Group</label>
+                                    <label htmlFor="blood" className="block text-rose-100 mb-2 text-sm">Blood Group</label>
                                     <select
-                                        className="select w-full"
+                                        className="select  w-full"
                                         name="blood"
                                         required
                                     >
@@ -185,20 +187,20 @@ const DonorCreateReq = () => {
                             </div>
                             <div className="flex flex-col md:flex-row gap-5">
                                 <div className="w-full">
-                                    <label htmlFor="name" className="block mb-2 text-sm">Full Adress</label>
+                                    <label htmlFor="name" className="block text-rose-100 mb-2 text-sm">Full Adress</label>
                                     <input
                                         type="text"
                                         name='address'
                                         required
                                         placeholder="Enter your Name"
-                                        className="w-full px-3 py-2 border outline-none rounded-md bg-transparent"
+                                        className="w-full px-3 text-rose-100 py-2 border outline-none rounded-md bg-transparent"
                                     />
                                 </div>
 
                             </div>
                             <div className="flex flex-col md:flex-row gap-5">
                                 <div className="w-full ">
-                                    <label htmlFor="name" className="block mb-2 text-sm">Date & Time</label>
+                                    <label htmlFor="name" className="block text-rose-100 mb-2 text-sm">Date & Time</label>
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                         <DateTimePicker
 
@@ -208,6 +210,8 @@ const DonorCreateReq = () => {
                                                 seconds: renderTimeViewClock,
                                             }}
                                             value={value}
+                                            
+                                            className="bg-rose-100 rounded-lg"
                                             onChange={(newValue) => setValue(newValue)}></DateTimePicker>
                                     </LocalizationProvider>
                                     <input
@@ -218,7 +222,7 @@ const DonorCreateReq = () => {
                                     />
                                 </div>
                                 <div className="w-full">
-                                    <label htmlFor="name" className="block mb-2 text-sm">Request Message</label>
+                                    <label htmlFor="name" className="block mb-2 text-rose-100 text-sm">Request Message</label>
                                     <textarea name="message" required rows={3} className="textarea w-full textarea-bordered" placeholder="Bio"></textarea>
                                 </div>
                                 
@@ -228,12 +232,12 @@ const DonorCreateReq = () => {
 
 
                         <div>
-                            <input type="submit" value="Make Request" className="w-full btn bg-blue-500 hover:bg-blue-700 border-none text-white" />
+                            <input type="submit" value="Make Request" className="w-full btn text-[#5D0911] bg-rose-100 hover:bg-[#5D0911] text-lg hover:text-rose-100 border-[#5D0911] " />
                         </div>
 
                     </form>
                 </div>
-
+                </div>
             </div>
         </div>
     );

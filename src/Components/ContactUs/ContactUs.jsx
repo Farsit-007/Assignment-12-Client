@@ -1,6 +1,5 @@
 import { useRef } from 'react';
-// import toast from "react-hot-toast";
-// import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 const ContactUs = () => {
     const nameref = useRef();
     const emailref = useRef();
@@ -22,9 +21,7 @@ const ContactUs = () => {
    
     return (
         <div  className="">
-          {/* <Helmet>
-                <title>HoTel FaLiz | Contact Us</title>
-            </Helmet> */}
+        
             <div className="max-w-6xl py-28 mx-auto">
                 <section data-aos="zoom-in"
                 data-aos-duration="1000" className="py-8  bg-gradient-to-r from-[#5D0911] to-[#ac0000] rounded-xl">

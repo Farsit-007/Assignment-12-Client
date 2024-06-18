@@ -6,7 +6,7 @@ import { IoEye, IoEyeOff } from "react-icons/io5";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import axios from "axios";
-
+import toast from "react-hot-toast";
 const image_hosting_key = "6c6d9827b1a74ce39e723830557272b6";
 const image_hosting_Api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
@@ -49,6 +49,7 @@ const Register = () => {
 
         createUser(userEmail, userPassword)
             .then(async (result) => {
+                toast.success('Welcome To Hope In Drops')
                 const userInfo = {
                     email: userEmail,
                     name: userName,
@@ -65,6 +66,7 @@ const Register = () => {
                 });
                 try {
                     const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/user`, userInfo);
+                   
                     return data;
                 } catch (error) {
                     console.log(error);
@@ -72,7 +74,7 @@ const Register = () => {
             })
             .catch((error) => {
                 if (error.message) {
-                    console.error("User already exists");
+                    toast.error("User already exists");
                 }
             });
     };
