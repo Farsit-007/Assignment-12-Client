@@ -88,7 +88,7 @@ const Donationreq = () => {
                                                     <p className='text-gray-900 whitespace-no-wrap'>{item.district} , {item.upazila}</p>
                                                 </td>
                                                 <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                                                    <p className='text-gray-900 whitespace-no-wrap'>{item.blood}</p>
+                                                    <div className='text-gray-900 badge badge-accent badge-outline whitespace-no-wrap'>{item.blood}</div>
                                                 </td>
                                                 <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                     <p className='text-gray-900 whitespace-no-wrap'>{item.time.slice(0, 10)}</p>

@@ -76,7 +76,7 @@ const DonationDetails = () => {
                     </div>
                 </div>
             </section>
-            <div className="grid grid-cols-4 gap-8 max-w-6xl p-8 lg:p-0 mx-auto">
+            <div className="grid grid-cols-4 gap-8 max-w-6xl p-8 my-5 lg:p-0 mx-auto">
                 <div className="col-span-4 lg:col-span-3">
                     <div className="mt-5 bg-gradient-to-r rounded-lg from-[#5D0911] to-[#ac0000]">
                         <h1 className="text-2xl p-2 px-5 text-white font-bold ">Recipient Details </h1>

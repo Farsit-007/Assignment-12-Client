@@ -21,7 +21,6 @@ const ContactUs = () => {
    
     return (
         <div  className="">
-        
             <div className="max-w-6xl py-28 mx-auto">
                 <section data-aos="zoom-in"
                 data-aos-duration="1000" className="py-8  bg-gradient-to-r from-[#5D0911] to-[#ac0000] rounded-xl">
