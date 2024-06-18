@@ -6,6 +6,7 @@ import logo from '../../../public/LOGO.png'
 import { FaDroplet } from "react-icons/fa6";
 import { SiMinutemailer } from "react-icons/si";
 import { MdOutlineAddIcCall } from "react-icons/md";
+import profile from '../../../public/user.jpg'
 const Header = () => {
     const { user, logOut } = useAuth();
     const [active, setActive] = useState(false);
@@ -114,7 +115,7 @@ const Header = () => {
                             <div className="dropdown dropdown-end">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
-                                        <img alt="User avatar" src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
+                                        <img alt="User avatar" src={user?.photoURL || profile} />
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box">
