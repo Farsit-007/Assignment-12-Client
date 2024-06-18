@@ -21,10 +21,10 @@ const BlogPost = () => {
             <title> Hope In Drops | Blogs</title>
             </Helmet>
             <section className="">
-                <div className=" bg-cover md:h-[300px] bg-slate-50 " style={{ backgroundImage: `url(https://i.postimg.cc/j2jFM8RW/small-juvenile-bedroom-arrangement-1.webp)` }}>
+                <div className=" bg-cover md:h-[300px] bg-slate-50 " style={{ backgroundImage: `url(./dd.jpg)` }}>
 
                     <div className="container flex flex-col justify-center items-center px-4 py-16 pb-24 mx-auto text-center  text-gray-900">
-                        <h1 className="text-4xl text-white mt-8 md:mt-24 font-bold leading-none sm:text-6xl xl:max-w-3xl  playfair ">Donation Details</h1>
+                        <h1 className="text-4xl text-[#5D0911] mt-8 md:mt-24 font-bold leading-none sm:text-6xl xl:max-w-3xl  playfair ">Blogs</h1>
                     </div>
                 </div>
             </section>

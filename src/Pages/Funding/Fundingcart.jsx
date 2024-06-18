@@ -31,7 +31,7 @@ const Fundingcart = () => {
                 <title> Hope In Drops | Funding</title>
             </Helmet>
             <div className="w-[80%] md:w-[70%]  mx-auto mt-20  rounded-2xl my-2 p-5 md:px-16 bg-gradient-to-r  from-[#5D0911] to-[#ac0000] border">
-                <h1 className="text-4xl text-white text-center pt-5 pb-8 font-bold leading-none sm:text-5xl xl:max-w-3xl  playfair ">Donation Details</h1>
+                <h1 className="text-4xl text-white text-center pt-5 pb-8 font-bold leading-none sm:text-5xl xl:max-w-3xl  playfair ">Funding</h1>
                 <form onSubmit={handlePay} className="space-y-6 pb-8 my-4">
                     <div className="flex flex-col md:flex-row  gap-3">
                         <input disabled type="text" placeholder={user?.displayName} className="input input-bordered w-full " />
