@@ -18,7 +18,7 @@ const PBlogCard = ({ blog }) => {
                </div>
                 <p>{blog.content.slice(0,90)}.....</p>
                 <div className="card-actions justify-center">
-                    <Link to={`/public-blog-details/${blog._id}`} className="btn btn-primary">Read More</Link>
+                    <Link to={`/public-blog-details/${blog._id}`} className=" px-8 btn transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md text-xl hover:text-[#5D0911]">Read More</Link>
                 </div>
             </div>
         </div>

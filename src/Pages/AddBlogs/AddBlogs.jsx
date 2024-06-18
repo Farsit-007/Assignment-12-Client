@@ -6,6 +6,7 @@ import JoditEditor from 'jodit-react';
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 const stripHtml = (html) => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     return doc.body.textContent || "";
@@ -22,6 +23,7 @@ const AddBlogs = () => {
             return data
         },
         onSuccess: data => {
+            toast.success("Blogs Created")
            navigate('/dashboard/content-management')
         }
     })

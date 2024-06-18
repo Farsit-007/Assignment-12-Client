@@ -4,6 +4,7 @@ import UpdateRole from "./UpdateRole";
 import { useMutation } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const AlluserTable = ({ user, refetch }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,7 @@ const AlluserTable = ({ user, refetch }) => {
         },
         onSuccess: data => {
             refetch()
+            toast.success("User Role Updated")
             setIsOpen(false)
         }
     })
@@ -55,10 +57,10 @@ const AlluserTable = ({ user, refetch }) => {
             const { data } = await axiosSecure.patch(`/adminupdatestatus/${id}`, { status });
             if (data.modifiedCount > 0) {
                 refetch();
-                alert("Updated")
+                toast.success(`User ${status === 'blocked' ? 'Blocked' : "Unblocked"}`)
             }
         } catch (error) {
-            console.log(error);
+            toast.error(error.message);
         }
 
     };

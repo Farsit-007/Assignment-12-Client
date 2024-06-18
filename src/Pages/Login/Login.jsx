@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
@@ -6,11 +6,11 @@ import { IoEyeOff } from "react-icons/io5";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 const Login = () => {
-    const { loginUser,user,loading} = useAuth();
+    const { loginUser, user, loading } = useAuth();
     const location = useLocation()
     const navigate = useNavigate()
     const [show, setShow] = useState(false)
-   
+
     const {
         register,
         handleSubmit,
@@ -21,26 +21,27 @@ const Login = () => {
     const togglePasswordVisibility = () => {
         setShow(!show);
     };
- 
+
     const onSubmit = (data) => {
-        const { userEmail, userPassword} = data;
-            loginUser(userEmail, userPassword)
-                .then(result => {
-                    toast.success("Logged in successfully");
-               
-                        navigate(location.state ? location.state : '/');
-                        reset();
-               
-                })
-                .catch(error => {
-                    if (error.message) {
-                        toast.error("Wrong email/password");
-                        reset();
-                    }
-                });
-  
+        const { userEmail, userPassword } = data;
+        loginUser(userEmail, userPassword)
+            .then(result => {
+                toast.success("Logged in successfully");
+                navigate(location.state ? location.state : '/');
+                reset();
+
+            })
+            .catch(error => {
+                if (error.message) {
+                    toast.error("Wrong email/password");
+                    reset();
+                }
+            });
+
     }
-   
+    if (user) {
+        navigate('/')
+    }
     return (
         <div className="flex justify-center bg-cover items-center min-h-screen" style={{ backgroundImage: `url(https://i.ibb.co/vQyz7LV/9012851.jpg)` }}>
             <div className="flex  flex-col animate__animated animate__zoomIn bg-opacity-5 backdrop-blur-3xl bg-transparent-white lg:mt-10 md:w-[450px] p-10 pb-4 pt-2 rounded-xl ">
@@ -92,7 +93,7 @@ const Login = () => {
                             </div>
                             {errors.userPassword && <small className="text-red-500 font-bold">{errors.userPassword.message}</small>}
                         </div>
-                        
+
 
                     </div>
                     <div className="pt-1">

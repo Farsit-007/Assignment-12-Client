@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const CheckoutForm = ({ handleCencel, funding, closeModal }) => {
   const stripe = useStripe();
@@ -77,6 +78,7 @@ const CheckoutForm = ({ handleCencel, funding, closeModal }) => {
       try {
         const { data } = await axiosSecure.post('/fund-details', paymentInfo)
        if(data.insertedId){
+        toast.success('Thanks For Your Contribution')
         navigate('/funding')
         closeModal()
        }

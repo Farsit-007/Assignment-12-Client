@@ -134,8 +134,8 @@ const ReqDonationDetails = () => {
                             </div>
                             {
                                 details.status === 'inprogress' ? <>
-                                    <button className="btn btn-sm transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-2xl  hover:text-[#5D0911]" onClick={() => handleStatusChange(details._id, 'done')}>done</button>
-                                    <button className="btn btn-sm transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-2xl  hover:text-[#5D0911]" onClick={() => handleStatusChange(details._id, 'cancel')}>cancel</button>
+                                    <button className="btn btn-sm transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-2xl  hover:text-[#5D0911]" onClick={() => handleStatusChange(details._id, 'done')}>Done</button>
+                                    <button className="btn btn-sm transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-2xl  hover:text-[#5D0911]" onClick={() => handleStatusChange(details._id, 'cancel')}>Cancel</button>
                                 </> : <></>
                             }
                         </div>

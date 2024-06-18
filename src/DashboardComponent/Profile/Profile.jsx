@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 const image_hosting_key = "6c6d9827b1a74ce39e723830557272b6";
 const image_hosting_Api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
@@ -23,7 +24,6 @@ const Profile = () => {
             return data
         }
     });
-    console.log(users.image);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -59,10 +59,11 @@ const Profile = () => {
                     const { data } = await axiosSecure.patch(`/updateuser/${users.email}`, userInfo)
                     if (data.modifiedCount > 0) {
                         setIsEditing(false)
+                        toast.success('Profile Updated')
                         refetch()
                     }
                 } catch (error) {
-                    console.log(error);
+                   toast.error(error.message)
                 }
             });
 

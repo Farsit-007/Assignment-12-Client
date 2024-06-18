@@ -94,7 +94,7 @@ const Donationreq = () => {
                                                 </td>
                                                 <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                                     <Link to={`/donationreq/${item._id}`}>
-                                                        <button className="btn">View Details</button>
+                                                        <button className="  btn btn-sm transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-3xl hover:text-[#5D0911]">View Details</button>
                                                     </Link>
                                                 </td>
 

@@ -2,7 +2,8 @@
 import { useMutation } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 const BlogCard = ({ blog , refetch,role}) => {
     const axiosSecure = useAxiosSecure()
     const { mutateAsync } = useMutation({
@@ -19,7 +20,7 @@ const BlogCard = ({ blog , refetch,role}) => {
             const { data } = await axiosSecure.patch(`/blogstatus/${id}`, { status });
             if (data.modifiedCount > 0) {
                 refetch();
-                alert("Updated")
+                toast.success(`Blogs ${status === 'draft' ? 'Unpublished' : "Published"}`)
             }
         } catch (error) {
             console.log(error);
@@ -28,11 +29,27 @@ const BlogCard = ({ blog , refetch,role}) => {
     };
 
     const handleDelete =async(id)=>{
-        try {
-            const { data } = await mutateAsync(id)
-        } catch (error) {
-            console.log(error);
-        }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const { data } = await mutateAsync(id)
+                if (data.deletedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Blogs has been deleted.",
+                        icon: "success"
+                    });
+                }
+            }
+        });     
     }
 
     return (

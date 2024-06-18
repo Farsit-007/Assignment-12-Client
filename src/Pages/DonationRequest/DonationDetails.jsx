@@ -7,6 +7,7 @@ import { useState } from "react";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 import { FaDroplet } from "react-icons/fa6";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
+import toast from "react-hot-toast";
 const DonationDetails = () => {
     const { id } = useParams()
     const [showModal, setShowModal] = useState(false);
@@ -32,7 +33,7 @@ const DonationDetails = () => {
     const handleStatusChange = async (blood, id, status) => {
         const isMatched = Userdetails.some(d => d.blood !== blood)
         if (isMatched) {
-            return alert("No")
+            return toast.error("Blood Not Matched With Requirement")
         }
         const donInfo = {
             status,
@@ -44,7 +45,9 @@ const DonationDetails = () => {
             try {
                 const { data } = await axios.patch(`${import.meta.env.VITE_API_URL}/donateupdatestatus/${id}`, donInfo);
                 if (data.modifiedCount > 0) {
+                    
                     refetch();
+                    toast.success("Donate Blood Spread Love")
                 }
             } catch (error) {
                 console.log(error);
@@ -170,7 +173,7 @@ const DonationDetails = () => {
                         
                     </div>
                     <div className="flex justify-center">
-                        <button disabled={user?.email === details.RequestEmail} onClick={() => handleStatusChange(details.blood, details._id, 'inprogress')} className="btn w-full text-2xl font-bold">Donate</button>
+                        <button disabled={user?.email === details.RequestEmail} onClick={() => handleStatusChange(details.blood, details._id, 'inprogress')} className="w-full px-8 btn transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md text-xl hover:text-[#5D0911]">Donate</button>
                     </div>
                 </div>
 
@@ -184,9 +187,9 @@ const DonationDetails = () => {
                     <div className="relative w-[320px] p-6 my-8 mx-auto rounded-lg bg-[#5D0911] border border-[#5D0911] ">
                         <div className="text-center">
                             <h3 className="text-3xl font-bold text-white  leading-6 ">Donations</h3>
-                            <div className="flex py-4 flex-col gap-3">
-                                <input disabled type="text" placeholder={user?.displayName} className="input input-bordered  w-full max-w-xs" />
-                                <input disabled type="text" placeholder={user?.email} className="input input-bordered w-full  max-w-xs" />
+                            <div className="flex py-4 text-[#5D0911]   flex-col gap-3">
+                                <input disabled type="text" placeholder={user?.displayName} className="input input-bordered text-[#5D0911]  w-full max-w-xs" />
+                                <input disabled type="text" placeholder={user?.email} className="input input-bordered w-full text-[#5D0911]  max-w-xs" />
                             </div>
                         </div>
                         <div className=" text-center">

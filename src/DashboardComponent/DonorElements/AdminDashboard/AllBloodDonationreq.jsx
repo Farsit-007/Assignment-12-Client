@@ -38,7 +38,7 @@ const AllBloodDonationreq = () => {
                     refetch();
                     Swal.fire({
                         title: "Deleted!",
-                        text: "Your file has been deleted.",
+                        text: "Donation Request has been deleted.",
                         icon: "success"
                     });
                 }

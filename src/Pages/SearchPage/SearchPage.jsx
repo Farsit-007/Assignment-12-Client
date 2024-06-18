@@ -123,9 +123,9 @@ const SearchPage = () => {
                         </select>
 
                         <div className="flex gap-5">
-                            <input className="btn" type="submit" value='Search' />
+                            <input className=" px-8 btn transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md text-xl hover:text-[#5D0911]" type="submit" value='Search' />
                             <div>
-                            <button type="button" className="btn btn-secondary" onClick={handleReset}>Reset</button>
+                            <button type="button" className=" px-8 btn transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md text-xl hover:text-[#5D0911]" onClick={handleReset}>Reset</button>
                             </div>
                         </div>
                     </div>

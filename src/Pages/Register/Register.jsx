@@ -11,7 +11,7 @@ const image_hosting_key = "6c6d9827b1a74ce39e723830557272b6";
 const image_hosting_Api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const Register = () => {
-    const { createUser, profileUpdate } = useAuth();
+    const { createUser, profileUpdate ,user,loading} = useAuth();
     const axiosPublic = useAxiosPublic();
     const location = useLocation();
     const navigate = useNavigate();
@@ -107,7 +107,9 @@ const Register = () => {
         const filtered = upazilas.filter((upazila) => upazila.district_id === selectedDistrictId);
         setFilteredUpazilas(filtered);
     };
-
+    if (user || loading) {
+        navigate('/')
+    }
     return (
         <div
             className="flex justify-center items-center  h-[900px]  md:h-screen font-Mulish w-full bg-cover"

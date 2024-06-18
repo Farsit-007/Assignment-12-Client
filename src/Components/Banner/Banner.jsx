@@ -13,7 +13,7 @@ const Banner = () => {
                     <p className="text-2xl text-center">Join our passionate community of heroes, donate blood, and bring hope with every drop!</p>
 
                 </div>
-                <div className="w-[70%] mx-auto mt-5 flex justify-center gap-5">
+                <div className="w-[70%] mx-auto mt-5 flex justify-center md:gap-5">
                     <Link to='/register' className='transition-colors btn duration-300 transform  text-rose-100 badge bg-[#5D0911] text-2xl hover:bg-rose-100 rounded-md  hover:text-[#5D0911]'>
                         Join as a Donor
                     </Link>

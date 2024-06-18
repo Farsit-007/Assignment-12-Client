@@ -36,7 +36,7 @@ const VolanteerContent = () => {
                         <option className="bg-[#5D0911]" value='published'>Publish</option>
                     </select>
                 </div>
-                <Link to='/dashboard/add-blogs' className="btn border-rose-100 text-rose-100 bg-transparent font-bold text-xl rounded-md">Create Blogs</Link>
+                <Link to='/dashboard/vol-add-blogs' className="btn border-rose-100 text-rose-100 bg-transparent font-bold text-xl rounded-md">Create Blogs</Link>
             </div>
             <div className=" grid grid-cols-1 lg:grid-cols-2 gap-5 mx-5 ">
                 {

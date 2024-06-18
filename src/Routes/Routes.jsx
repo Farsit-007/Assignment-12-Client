@@ -135,7 +135,7 @@ const router = createBrowserRouter([
             ,
             {
                 path: 'add-blogs',
-                element: <PrivateRoute><AddBlogs></AddBlogs></PrivateRoute>
+                element: <PrivateRoute><AdminRoute><AddBlogs></AddBlogs></AdminRoute></PrivateRoute>
             }
             ,
             {
@@ -150,6 +150,10 @@ const router = createBrowserRouter([
             {
                 path: 'volanteer-content-management',
                 element: <PrivateRoute> <VolanteerRoute><VolanteerContent></VolanteerContent></VolanteerRoute></PrivateRoute>
+            },
+            {
+                path: 'vol-add-blogs',
+                element: <PrivateRoute><VolanteerRoute><AddBlogs></AddBlogs></VolanteerRoute></PrivateRoute>
             }
            
         ]

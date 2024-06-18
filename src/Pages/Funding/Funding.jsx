@@ -25,7 +25,7 @@ const Funding = () => {
             </section>
             <div className="max-w-6xl mx-auto mt-5">
                 <div className="flex justify-end">
-                    <Link to='/fundingcart' className="btn">Donate</Link>
+                    <Link to='/fundingcart' className="px-8 btn transition-colors duration-300 transform  text-rose-100 badge bg-[#5D0911] hover:bg-rose-100 rounded-md text-xl hover:text-[#5D0911]">Donate</Link>
                 </div>
             </div>
 
