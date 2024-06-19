@@ -4,7 +4,7 @@ import Footer from "../Components/Footer/Footer";
 
 const Main = () => {
     return (
-        <div>
+        <div className="font-meri">
              <div className="">
                 <Header></Header>
             </div>

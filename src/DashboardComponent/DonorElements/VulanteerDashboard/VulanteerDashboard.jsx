@@ -5,7 +5,6 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { BiSolidDonateBlood } from 'react-icons/bi';
 import { RiRefund2Fill } from 'react-icons/ri';
-import { IoPerson } from "react-icons/io5";
 const VulanteerDashboard = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
@@ -28,8 +27,10 @@ const VulanteerDashboard = () => {
                 <div className='lg:w-[31%]  rounded-xl shadow bg-gradient-to-r  from-[#5D0911] to-[#ac0000] h-40'>
                     <div className="text-3xl p-4 px-8 font-bold text-rose-100">Total User</div>
                     <div className='flex justify-between  items-center  px-8'>
-                        <div className="text-rose-100">
-                            <IoPerson size={65}/>
+                    <div className="avatar online">
+                            <div className="w-16 rounded-full">
+                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            </div>
                         </div>
                         <div className=" text-rose-100 font-bold text-4xl">
 

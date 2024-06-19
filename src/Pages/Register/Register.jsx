@@ -113,8 +113,8 @@ const Register = () => {
     }
     return (
         <div
-            className="flex justify-center items-center  h-[900px]  md:h-screen font-Mulish w-full bg-cover"
-            style={{ backgroundImage: `url(https://i.ibb.co/vQyz7LV/9012851.jpg)` }}
+            className="flex font-meri justify-center items-center  h-[900px]  md:h-screen w-full bg-cover"
+            style={{ backgroundImage: `url(https://i.ibb.co/cxCzyNW/9012851.jpg)` }}
         >
             <Helmet>
             <title> Hope In Drops | Register</title>
@@ -122,7 +122,7 @@ const Register = () => {
             <div className="flex justify-center items-center min-h-screen">
                 <div className="flex flex-col md:w-[800px]  p-10 pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">
                     <div className="mb-4 text-center border-b-2">
-                        <h1 className="my-2 text-3xl text-rose-100 font-bold">Register your account</h1>
+                        <h1 className="my-2 text-2xl md:text-3xl text-rose-100 font-bold">Register your account</h1>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                         <div className="space-y-2">

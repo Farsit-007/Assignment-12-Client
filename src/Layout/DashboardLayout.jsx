@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 
 const DashboardLayout = () => {
     return (
-        <div className="relative min-h-screen md:flex ">
+        <div className="relative min-h-screen md:flex  font-meri">
             <Helmet>
             <title> Hope In Drops | Dashboard</title>
             </Helmet>

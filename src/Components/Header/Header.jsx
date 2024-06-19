@@ -130,8 +130,8 @@ const Header = () => {
                         </div>
                     ) : (
                         <div className="navbar-end flex items-center gap-2 md:pl-8">
-                            <Link to='/login' className="text-[16px] font-bold btn p-2 md:p-3 bg-transparent text-white">Login</Link>
-                            <Link to='/register' className="text-[16px] font-bold p-2 md:p-3  btn bg-transparent text-white">Register</Link>
+                            <Link to='/login' className=" md:text-[16px] font-bold btn p-2 md:p-3 bg-transparent text-white">Login</Link>
+                            <Link to='/register' className="md:text-[16px] font-bold p-2 md:p-3  btn bg-transparent text-white">Register</Link>
                         </div>
                     )}
                 </div>

@@ -44,7 +44,7 @@ const Login = () => {
         navigate('/')
     }
     return (
-        <div className="flex justify-center bg-cover items-center min-h-screen" style={{ backgroundImage: `url(https://i.ibb.co/vQyz7LV/9012851.jpg)` }}>
+        <div className="flex justify-center bg-cover items-center min-h-screen" style={{ backgroundImage: `url(https://i.ibb.co/cxCzyNW/9012851.jpg)` }}>
            <Helmet>
             <title> Hope In Drops | Login</title>
             </Helmet>
