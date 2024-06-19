@@ -193,8 +193,8 @@ const DonationDetails = () => {
                         <div className="text-center">
                             <h3 className="text-3xl font-bold text-white  leading-6 ">Donations</h3>
                             <div className="flex py-4 text-[#5D0911]   flex-col gap-3">
-                                <input disabled type="text" placeholder={user?.displayName} className="input input-bordered text-[#5D0911]  w-full max-w-xs" />
-                                <input disabled type="text" placeholder={user?.email} className="input input-bordered w-full text-[#5D0911]  max-w-xs" />
+                                <input disabled type="text" placeholder={user?.displayName} className="rounded-lg cursor-not-allowed    w-full max-w-xs" />
+                                <input disabled type="text" placeholder={user?.email} className="rounded-lg cursor-not-allowed w-full  text-[#5D0911]  max-w-xs" />
                             </div>
                         </div>
                         <div className=" text-center">

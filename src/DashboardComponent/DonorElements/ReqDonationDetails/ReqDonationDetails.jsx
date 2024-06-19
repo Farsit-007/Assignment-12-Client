@@ -122,7 +122,7 @@ const ReqDonationDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className=" col-span-3 lg:col-span-1">
+                <div className=" col-span-3 mb-4 lg:col-span-1">
                     <div className="text-center">
                         <div className="mt-5 mb-3 lg:ml-5 rounded-lg bg-gradient-to-r  from-[#5D0911] to-[#ac0000]">
                             <h1 className="text-2xl p-2 px-5  text-white font-bold ">Donation Status</h1>
