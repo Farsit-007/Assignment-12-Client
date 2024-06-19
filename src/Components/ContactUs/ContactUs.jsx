@@ -4,13 +4,13 @@ const ContactUs = () => {
     const nameref = useRef();
     const emailref = useRef();
     const msgref = useRef();
-    
-    const handleSubmit = e =>{
+
+    const handleSubmit = e => {
         e.preventDefault();
         const data = {
-            Name : nameref.current.value,
-            Email : emailref.current.value,
-            Msg : msgref.current.value
+            Name: nameref.current.value,
+            Email: emailref.current.value,
+            Msg: msgref.current.value
         }
         toast.success("Thanks for contact with us")
         console.log(data);
@@ -18,12 +18,15 @@ const ContactUs = () => {
         emailref.current.value = '';
         msgref.current.value = '';
     }
-   
+
     return (
-        <div  className="">
-            <div className="max-w-6xl py-28 mx-auto">
+        <div className="">
+            <div className="text-center my-10">
+                <h1 className="text-3xl text-[#5D0911] font-bold md:text-5xl">Contact Us</h1>
+            </div>
+            <div className="max-w-6xl pb-28 mx-auto">
                 <section data-aos="zoom-in"
-                data-aos-duration="1000" className="py-8  bg-gradient-to-r from-[#5D0911] to-[#ac0000] rounded-xl">
+                    data-aos-duration="1000" className="py-8  bg-gradient-to-r from-[#5D0911] to-[#ac0000] rounded-xl">
                     <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
                         <div className="py-6 md:py-0 text-white md:px-6">
                             <h1 className="text-4xl font-bold">Contact With Us</h1>
@@ -57,18 +60,18 @@ const ContactUs = () => {
                             </label>
                             <label className="block">
                                 <span className="mb-1 text-white">Email address</span>
-                                <input ref={emailref} type="email" placeholder="Email address" className="block p-2 w-full text-rose-100shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 " required/>
+                                <input ref={emailref} type="email" placeholder="Email address" className="block p-2 w-full text-rose-100shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 " required />
                             </label>
                             <label className="block">
                                 <span className="mb-1 text-white">Message</span>
-                                <textarea ref={msgref} rows="3"  placeholder="Message" className="block w-full text-gray-500 focus:ring focus:ring-opacity-75 p-2 focus:ring-violet-400 "></textarea>
+                                <textarea ref={msgref} rows="3" placeholder="Message" className="block w-full text-gray-500 focus:ring focus:ring-opacity-75 p-2 focus:ring-violet-400 "></textarea>
                             </label>
                             <button type="submit" className="bg-transparent  text-lg font-bold border border-rose-100 text-white  p-2 flex gap-1 items-center hover:text-[#5D0911] justify-center hover:bg-rose-100 px-4 transition-all duration-1000 ">Submit</button>
                         </form>
                     </div>
                 </section>
             </div>
-            
+
         </div>
     );
 };

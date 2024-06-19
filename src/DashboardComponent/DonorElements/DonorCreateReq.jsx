@@ -84,9 +84,9 @@ const DonorCreateReq = () => {
             </Helmet>
             <div className="bg-[#5D0911] rounded-lg my-5 md:my-0 px-20">
             <div className="flex justify-center items-center min-h-screen">
-                <div className="flex flex-col md:w-[800px]  pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">
+                <div className="flex flex-col  md:w-[800px]  pb-4 pt-2 rounded-xl bg-opacity-5 backdrop-blur-3xl bg-transparent-white">
 
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-4 ">
                         <div className="space-y-2">
                             <div className="flex flex-col md:flex-row gap-5">
                                 <div className="w-full">
