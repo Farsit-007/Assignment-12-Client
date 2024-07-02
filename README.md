@@ -63,15 +63,15 @@
   • Notify Donor Requestor by Email using NodeMailer <br/>
 
  # Technologies : 
-  • React.js
-  • Tailwind.css
-  • Firebase 
-  • React-router-dom
-  • Node.js
-  • Express.js
-  • MongoDb
-  • NodeMailer
-  • Stripe
+  • React.js <br/>
+  • Tailwind.css <br/>
+  • Firebase  <br/>
+  • React-router-dom <br/>
+  • Node.js <br/>
+  • Express.js <br/>
+  • MongoDb <br/>
+  • NodeMailer <br/>
+  • Stripe <br/>
 
  ### Setup .env file
 
