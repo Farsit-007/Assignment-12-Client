@@ -58,9 +58,9 @@
 
 
  # Major Features :
-  • Admin Panels
-  • Payment Method with Stripe
-  • Notify Donor Requestor by Email using NodeMailer
+  • Admin Panels <br/>
+  • Payment Method with Stripe <br/>
+  • Notify Donor Requestor by Email using NodeMailer <br/>
 
  # Technologies : 
   • React.js
